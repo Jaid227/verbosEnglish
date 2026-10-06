@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verbos en Inglés — Guía Completa</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-soft: #555;
+    --accent: #0984e3;
+    --past: #d63031;
+    --future: #00b894;
+    --present: #6c5ce7;
+    --tip: #f39c12;
+    --warn: #e74c3c;
+    --ok: #27ae60;
+    --border: #e0e0e0;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --check-bg: #f9f9fc;
+    --arrow: #b2bec3;
+    --info-bg: #eef6ff;
+    --tip-bg: #fff8e1;
+    --warn-bg: #fdecea;
+    --ok-bg: #eafaf1;
+  }
+  [data-theme="dark"] {
+    --bg: #0f0f17;
+    --card: #1a1a25;
+    --text: #eaeaea;
+    --text-soft: #a0a0b0;
+    --accent: #74b9ff;
+    --past: #ff7675;
+    --future: #55efc4;
+    --present: #a29bfe;
+    --tip: #fdcb6e;
+    --warn: #ff7675;
+    --ok: #55efc4;
+    --border: #2a2a3a;
+    --shadow: 0 4px 20px rgba(0,0,0,0.5);
+    --check-bg: #202030;
+    --arrow: #636e72;
+    --info-bg: #1c2733;
+    --tip-bg: #332e1a;
+    --warn-bg: #332020;
+    --ok-bg: #1a3329;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+    padding-bottom: 80px;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--accent), var(--present));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .theme-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.3s;
+  }
+  .theme-btn:hover { transform: scale(1.05); }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .intro {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+  .intro h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+  .intro p { color: var(--text-soft); margin-bottom: 1rem; }
+
+  .legend {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-soft);
+  }
+  .legend .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .dot.past { background: var(--past); }
+  .dot.present { background: var(--present); }
+  .dot.future { background: var(--future); }
+
+  .progress-bar {
+    background: var(--border);
+    height: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+  .progress-bar > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--future));
+    transition: width 0.5s;
+    width: 0%;
+  }
+  #progressTxt {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    font-weight: 600;
+  }
+
+  /* ============ GUÍA EDUCATIVA ============ */
+  .guide {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+  .guide h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .guide > p {
+    color: var(--text-soft);
+    margin-bottom: 1rem;
+  }
+
+  .guide-toggle {
+    width: 100%;
+    background: var(--info-bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: inherit;
+  }
+  .guide-toggle:hover {
+    background: var(--accent);
+    color: white;
+  }
+  .guide-toggle .arrow-icon {
+    font-size: 1rem;
+    transition: transform 0.3s;
+  }
+  .guide-toggle.open .arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  .guide-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .guide-panel.open {
+    max-height: 5000px;
+    transition: max-height 0.8s ease;
+  }
+  .guide-panel-inner {
+    padding: 1rem 1.1rem;
+    border-left: 4px solid var(--accent);
+    background: var(--check-bg);
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 1rem;
+  }
+  .guide-panel-inner h3 {
+    color: var(--accent);
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .guide-panel-inner h4 {
+    color: var(--present);
+    font-size: 0.95rem;
+    margin: 0.85rem 0 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .guide-panel-inner p {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  .guide-panel-inner ul,
+  .guide-panel-inner ol {
+    margin: 0.4rem 0 0.8rem 1.3rem;
+    color: var(--text-soft);
+    font-size: 0.9rem;
+  }
+  .guide-panel-inner li {
+    margin-bottom: 0.35rem;
+  }
+  .guide-panel-inner code {
+    background: var(--bg);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+    font-size: 0.88em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+
+  /* ============ BLOQUES EDUCATIVOS ============ */
+  .info-box,
+  .tip-box,
+  .warn-box,
+  .ok-box {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    border-left: 4px solid;
+  }
+  .info-box {
+    background: var(--info-bg);
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  .tip-box {
+    background: var(--tip-bg);
+    border-color: var(--tip);
+    color: var(--text);
+  }
+  .warn-box {
+    background: var(--warn-bg);
+    border-color: var(--warn);
+    color: var(--text);
+  }
+  .ok-box {
+    background: var(--ok-bg);
+    border-color: var(--ok);
+    color: var(--text);
+  }
+  .info-box::before { content: "ℹ️  "; font-weight: 700; }
+  .tip-box::before { content: "💡  "; font-weight: 700; }
+  .warn-box::before { content: "⚠️  "; font-weight: 700; }
+  .ok-box::before { content: "✅  "; font-weight: 700; }
+
+  /* Tablas explicativas */
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+    font-size: 0.85rem;
+  }
+  .guide-table th,
+  .guide-table td {
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .guide-table th {
+    background: var(--info-bg);
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .guide-table td { color: var(--text-soft); }
+  .guide-table td strong { color: var(--text); }
+
+  /* ============ CATEGORÍA EXPLICATIVA ============ */
+  .category-intro {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--accent);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 1rem 0 1rem;
+    box-shadow: var(--shadow);
+  }
+  .category-intro h4 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .category-intro p {
+    color: var(--text-soft);
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+  }
+  .category-intro ul {
+    margin: 0.3rem 0 0.5rem 1.2rem;
+    color: var(--text-soft);
+    font-size: 0.85rem;
+  }
+  .category-intro li { margin-bottom: 0.25rem; }
+  .category-intro code {
+    background: var(--bg);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+    font-size: 0.85em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+
+  /* ============ BÚSQUEDA Y FILTROS ============ */
+  .search-box {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .search-box:focus { outline: 2px solid var(--accent); }
+
+  .filter-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .filter-row button {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .filter-row button.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .filter-row button:hover:not(.active) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .category-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--present);
+    margin: 1.75rem 0 0.75rem;
+    padding-left: 0.5rem;
+    border-left: 4px solid var(--present);
+  }
+
+  /* ============ TARJETAS DE VERBO ============ */
+  .verb-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.85rem;
+    box-shadow: var(--shadow);
+    transition: all 0.25s;
+    position: relative;
+  }
+  .verb-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  .verb-card.learned {
+    background: var(--check-bg);
+    border-color: var(--future);
+    opacity: 0.8;
+  }
+  .verb-card.learned .verb-center .verb-base {
+    text-decoration: line-through;
+    color: var(--text-soft);
+  }
+
+  .verb-top {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .verb-slot {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 0.4rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  .verb-slot .label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .verb-slot .value {
+    font-size: 1rem;
+    font-weight: 700;
+    word-break: break-word;
+  }
+
+  .verb-past {
+    background: rgba(214, 48, 49, 0.08);
+    border: 1px dashed var(--past);
+  }
+  .verb-past .label { color: var(--past); }
+  .verb-past .value { color: var(--past); }
+
+  .verb-center {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(9, 132, 227, 0.1));
+    border: 2px solid var(--present);
+    flex: 1.2;
+  }
+  .verb-center .label { color: var(--present); }
+  .verb-center .verb-base {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--present);
+    word-break: break-word;
+  }
+
+  .verb-future {
+    background: rgba(0, 184, 148, 0.08);
+    border: 1px dashed var(--future);
+  }
+  .verb-future .label { color: var(--future); }
+  .verb-future .value { color: var(--future); }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    color: var(--arrow);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .verb-meaning {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text);
+    padding: 0.5rem 0.75rem;
+    background: var(--check-bg);
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+  .verb-meaning::before {
+    content: "📖 ";
+    font-size: 0.85rem;
+  }
+
+  .examples-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0.5rem 0 0.4rem 0.25rem;
+  }
+
+  .example-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.5rem 0.7rem;
+    margin-bottom: 0.35rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    border-left: 3px solid;
+  }
+  .example-row.past {
+    background: rgba(214, 48, 49, 0.06);
+    border-color: var(--past);
+  }
+  .example-row.present {
+    background: rgba(108, 92, 231, 0.06);
+    border-color: var(--present);
+  }
+  .example-row.future {
+    background: rgba(0, 184, 148, 0.06);
+    border-color: var(--future);
+  }
+
+  .ex-tag {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.15rem 0.5rem;
+    border-radius: 50px;
+    color: white;
+    align-self: flex-start;
+    margin-top: 0.15rem;
+    min-width: 62px;
+    text-align: center;
+  }
+  .ex-tag.past { background: var(--past); }
+  .ex-tag.present { background: var(--present); }
+  .ex-tag.future { background: var(--future); }
+
+  .ex-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .ex-text .ex-en {
+    display: block;
+    font-style: italic;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .ex-text .ex-es {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    margin-top: 0.1rem;
+  }
+  .ex-text .ex-es::before {
+    content: "→ ";
+    font-weight: 700;
+  }
+
+  .verb-check {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--bg);
+    padding: 0.25rem 0.6rem;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+  }
+  .verb-check label {
+    font-size: 0.7rem;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .verb-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--future);
+  }
+
+  .type-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+  .type-regular { background: rgba(9, 132, 227, 0.15); color: var(--accent); }
+  .type-irregular { background: rgba(214, 48, 49, 0.15); color: var(--past); }
+  .type-modal { background: rgba(108, 92, 231, 0.15); color: var(--present); }
+  .type-phrasal { background: rgba(0, 184, 148, 0.15); color: var(--future); }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+    margin-top: 2rem;
+  }
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  footer a:hover {
+    color: var(--future);
+    text-decoration: underline;
+  }
+
+  .empty {
+    text-align: center;
+    color: var(--text-soft);
+    padding: 2rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    header h1 { font-size: 1rem; }
+    .intro h2, .guide h2 { font-size: 1.1rem; }
+    main { padding: 1rem; }
+
+    .verb-top {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .arrow {
+      transform: rotate(90deg);
+      justify-content: center;
+    }
+    .verb-center .verb-base { font-size: 1.1rem; }
+    .verb-slot .value { font-size: 0.95rem; }
+
+    .verb-check {
+      position: static;
+      margin-bottom: 0.6rem;
+      justify-content: flex-end;
+    }
+
+    .ex-tag {
+      min-width: 54px;
+      font-size: 0.6rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔤 Verbos en Inglés — Guía Completa</h1>
+  <button class="theme-btn" id="themeToggle">🌙 Modo Oscuro</button>
+</header>
+
+<main>
+
+  <!-- ============ INTRO ============ -->
+  <div class="intro">
+    <h2>Pasado · Presente · Futuro</h2>
+    <p>Cada tarjeta muestra el verbo en <strong>pasado</strong> (izquierda), su <strong>forma base</strong> (centro) y su <strong>futuro</strong> con <em>will</em> (derecha). Debajo, su significado y <strong>tres ejemplos</strong> (uno por cada tiempo) con su traducción.</p>
+    <div class="legend">
+      <span><span class="dot past"></span> Pasado</span>
+      <span><span class="dot present"></span> Presente</span>
+      <span><span class="dot future"></span> Futuro</span>
+    </div>
+    <div class="progress-bar" style="margin-top:1rem;"><div id="progressBar"></div></div>
+    <p id="progressTxt">0 de 0 verbos aprendidos</p>
+  </div>
+
+  <!-- ============ GUÍA EDUCATIVA PRINCIPAL ============ -->
+  <div class="guide">
+    <h2>🎓 Guía: Tipos de Verbos en Inglés</h2>
+    <p>Antes de empezar, es fundamental entender <strong>qué tipo de verbo</strong> estás aprendiendo. Cada grupo tiene reglas distintas. Despliega cada bloque para ver la explicación completa con tips.</p>
+
+    <!-- REGULARES -->
+    <button class="guide-toggle" data-target="g-regular">
+      🔵 ¿Qué son los verbos regulares?
+      <span class="arrow-icon">▼</span>
+    </button>
+    <div class="guide-panel" id="g-regular">
+      <div class="guide-panel-inner">
+        <h3>Definición</h3>
+        <p>Los <strong>verbos regulares</strong> son aquellos que forman su <strong>pasado simple</strong> y su <strong>participio pasado</strong> agregando <code>-ed</code> al final del verbo base. Son los más fáciles y predecibles del inglés.</p>
+
+        <h4>📐 Reglas de formación del pasado</h4>
+        <table class="guide-table">
+          <tr><th>Regla</th><th>Ejemplo</th><th>Pasado</th></tr>
+          <tr><td>Verbo termina en consonante</td><td>work</td><td>work<strong>ed</strong></td></tr>
+          <tr><td>Verbo termina en <code>-e</code></td><td>live</td><td>liv<strong>ed</strong></td></tr>
+          <tr><td>Verbo termina en <code>-y</code> precedida de consonante</td><td>study</td><td>stud<strong>ied</strong></td></tr>
+          <tr><td>Verbo termina en <code>-y</code> precedida de vocal</td><td>play</td><td>play<strong>ed</strong></td></tr>
+          <tr><td>Verbo corto (1 sílaba) CVC</td><td>stop</td><td>stop<strong>ped</strong> (dobla la consonante)</td></tr>
+        </table>
+
+        <h4>💡 Tips importantes</h4>
+        <div class="tip-box">La mayoría de los verbos en inglés son regulares (aproximadamente el 80%). Si dudas, prueba primero con la regla <code>-ed</code>.</div>
+        <div class="tip-box">Para el futuro no importa si el verbo es regular o irregular: siempre se usa <code>will + verbo base</code>.</div>
+
+        <h4>⚠️ Errores comunes</h4>
+        <div class="warn-box">No confundas <em>study</em> → <em>studyed</em> ❌. Lo correcto es <em>studied</em> ✅ (la Y se convierte en I).</div>
+        <div class="warn-box">No dupliques la consonante en verbos largos: <em>visit</em> → <em>visited</em> ✅, no <em>visitted</em> ❌.</div>
+
+        <div class="ok-box">Regla de oro: si puedes formar el pasado con <code>-ed</code> sin excepción, es un verbo regular.</div>
+      </div>
+    </div>
+
+    <!-- IRREGULARES -->
+    <button class="guide-toggle" data-target="g-irregular">
+      🔴 ¿Qué son los verbos irregulares?
+      <span class="arrow-icon">▼</span>
+    </button>
+    <div class="guide-panel" id="g-irregular">
+      <div class="guide-panel-inner">
+        <h3>Definición</h3>
+        <p>Los <strong>verbos irregulares</strong> son aquellos que <strong>NO</strong> siguen la regla del <code>-ed</code>. Cada uno tiene su propia forma de pasado y participio. Hay que <strong>memorizarlos</strong>.</p>
+
+        <h4>📊 Ejemplos comunes</h4>
+        <table class="guide-table">
+          <tr><th>Base</th><th>Pasado</th><th>Significado</th></tr>
+          <tr><td>go</td><td>went</td><td>ir</td></tr>
+          <tr><td>eat</td><td>ate</td><td>comer</td></tr>
+          <tr><td>see</td><td>saw</td><td>ver</td></tr>
+          <tr><td>take</td><td>took</td><td>tomar</td></tr>
+          <tr><td>write</td><td>wrote</td><td>escribir</td></tr>
+        </table>
+
+        <h4>💡 Tips para memorizarlos</h4>
+        <div class="tip-box">Agrúpalos por patrón de cambio: <br>
+          • <strong>i → a → u</strong>: sing → sang → sung, drink → drank → drunk<br>
+          • <strong>ee → e → e</strong>: feel → felt → felt, sleep → slept → slept<br>
+          • <strong>Mismo pasado y participio</strong>: buy → bought → bought, bring → brought → brought</div>
+        <div class="tip-box">Aprende los irregulares <strong>en grupos de 5-10 por día</strong>. Repásalos con tarjetas (Anki, Quizlet).</div>
+
+        <h4>⚠️ Errores comunes</h4>
+        <div class="warn-box">No inventes pasados: <em>goed</em> ❌ → <em>went</em> ✅. <em>eated</em> ❌ → <em>ate</em> ✅.</div>
+        <div class="warn-box">Cuidado con <em>read</em>: se escribe igual en pasado, pero se pronuncia <strong>/red/</strong> en pasado y <strong>/riːd/</strong> en presente.</div>
+
+        <div class="ok-box">Aunque parezcan difíciles, solo hay unos <strong>200 irregulares reales</strong> en inglés, y con 50 ya cubres el 90% de las conversaciones.</div>
+      </div>
+    </div>
+
+    <!-- MODALES -->
+    <button class="guide-toggle" data-target="g-modal">
+      🟣 ¿Qué son los verbos modales?
+      <span class="arrow-icon">▼</span>
+    </button>
+    <div class="guide-panel" id="g-modal">
+      <div class="guide-panel-inner">
+        <h3>Definición</h3>
+        <p>Los <strong>verbos modales</strong> son verbos auxiliares que <strong>no expresan una acción</strong>, sino <strong>una actitud</strong>: posibilidad, obligación, permiso, habilidad o consejo. Siempre van acompañados de otro verbo en forma base.</p>
+
+        <h4>📋 Lista principal de modales</h4>
+        <table class="guide-table">
+          <tr><th>Modal</th><th>Significado</th><th>Ejemplo</th></tr>
+          <tr><td><strong>can</strong></td><td>poder (habilidad)</td><td>I can swim.</td></tr>
+          <tr><td><strong>could</strong></td><td>podía / podría</td><td>I could swim when I was 5.</td></tr>
+          <tr><td><strong>may</strong></td><td>permiso (formal)</td><td>May I come in?</td></tr>
+          <tr><td><strong>might</strong></td><td>posibilidad remota</td><td>It might rain.</td></tr>
+          <tr><td><strong>must</strong></td><td>obligación fuerte</td><td>You must stop.</td></tr>
+          <tr><td><strong>should</strong></td><td>consejo</td><td>You should rest.</td></tr>
+          <tr><td><strong>would</strong></td><td>condicional</td><td>I would go if I could.</td></tr>
+          <tr><td><strong>will</strong></td><td>futuro</td><td>I will call you.</td></tr>
+        </table>
+
+        <h4>💡 Tips clave</h4>
+        <div class="tip-box">Los modales <strong>nunca llevan -s</strong> en tercera persona: <em>She can</em> ✅, <em>She cans</em> ❌.</div>
+        <div class="tip-box">Después de un modal, el verbo va <strong>siempre en forma base</strong>: <em>I can to go</em> ❌ → <em>I can go</em> ✅.</div>
+        <div class="tip-box">Para el pasado, muchos modales cambian de forma: <code>can → could</code>, <code>must → had to</code>, <code>will → would</code>.</div>
+
+        <h4>⚠️ Errores comunes</h4>
+        <div class="warn-box">No combines dos modales: <em>I will can</em> ❌. Usa: <em>I will be able to</em> ✅.</div>
+        <div class="warn-box">No uses "to" después de un modal: <em>I must to go</em> ❌ → <em>I must go</em> ✅.</div>
+
+        <div class="ok-box">Los modales son como <strong>el "tono" de tu frase</strong>: cambian si suenas seguro, dudoso, educado o exigente.</div>
+      </div>
+    </div>
+
+    <!-- PHRASAL VERBS -->
+    <button class="guide-toggle" data-target="g-phrasal">
+      🟢 ¿Qué son los Phrasal Verbs?
+      <span class="arrow-icon">▼</span>
+    </button>
+    <div class="guide-panel" id="g-phrasal">
+      <div class="guide-panel-inner">
+        <h3>Definición</h3>
+        <p>Los <strong>phrasal verbs</strong> son combinaciones de un <strong>verbo + preposición o adverbio</strong> que juntos crean un <strong>significado nuevo</strong>, distinto al del verbo original. Son muy comunes en el inglés hablado.</p>
+
+        <h4>📊 Ejemplos</h4>
+        <table class="guide-table">
+          <tr><th>Phrasal Verb</th><th>Significado literal</th><th>Significado real</th></tr>
+          <tr><td><strong>give up</strong></td><td>dar arriba</td><td>rendirse</td></tr>
+          <tr><td><strong>look after</strong></td><td>mirar después</td><td>cuidar</td></tr>
+          <tr><td><strong>put up with</strong></td><td>poner arriba con</td><td>aguantar</td></tr>
+          <tr><td><strong>come up with</strong></td><td>venir arriba con</td><td>idear / ocurrírsele</td></tr>
+          <tr><td><strong>run out of</strong></td><td>correr fuera de</td><td>quedarse sin</td></tr>
+        </table>
+
+        <h4>💡 Tips para aprenderlos</h4>
+        <div class="tip-box">Apréndelos <strong>en contexto</strong>, no aislados. Memoriza la frase completa: <em>"I give up on this"</em>, no solo <em>"give up"</em>.</div>
+        <div class="tip-box">Muchos phrasal verbs son <strong>separables</strong>: <em>turn off the TV</em> = <em>turn the TV off</em>. Pero otros no: <em>look after the baby</em> ✅, <em>look the baby after</em> ❌.</div>
+        <div class="tip-box">Hay más de <strong>5000 phrasal verbs</strong> en inglés, pero solo unos <strong>200 son realmente frecuentes</strong>. Empieza por esos.</div>
+
+        <h4>⚠️ Errores comunes</h4>
+        <div class="warn-box">No los traduzcas literalmente: <em>"look for"</em> no es "mirar por", es <strong>"buscar"</strong>.</div>
+        <div class="warn-box">Algunos cambian de significado según la preposición: <em>look at</em> (mirar) ≠ <em>look for</em> (buscar) ≠ <em>look after</em> (cuidar) ≠ <em>look up to</em> (admirar).</div>
+
+        <div class="ok-box">Dominar los phrasal verbs es lo que separa un inglés "de libro" de un inglés <strong>real y natural</strong>.</div>
+      </div>
+    </div>
+
+    <!-- TIPS GENERALES -->
+    <button class="guide-toggle" data-target="g-tips">
+      🎯 Tips generales para aprender verbos
+      <span class="arrow-icon">▼</span>
+    </button>
+    <div class="guide-panel" id="g-tips">
+      <div class="guide-panel-inner">
+        <h3>Estrategia de estudio</h3>
+
+        <h4>📅 Constancia > intensidad</h4>
+        <div class="tip-box">15 minutos diarios valen más que 3 horas un solo día. El cerebro necesita repetición espaciada.</div>
+
+        <h4>🎯 Aprende en los 3 tiempos a la vez</h4>
+        <p>No aprendas solo el presente. Cuando veas un verbo nuevo, apréndelo directamente en sus tres formas: <code>go → went → will go</code>. Así lo usas desde el primer día.</p>
+
+        <h4>🗣️ Habla en voz alta</h4>
+        <div class="tip-box">Repite cada ejemplo en voz alta. La memoria muscular es clave para hablar con fluidez.</div>
+
+        <h4>📝 Escribe tus propias frases</h4>
+        <p>Después de ver un verbo, escribe <strong>3 oraciones propias</strong>: una en pasado, una en presente y una en futuro. Esto fija el aprendizaje 10 veces más que solo leerlo.</p>
+
+        <h4>🔁 Repaso espaciado</h4>
+        <table class="guide-table">
+          <tr><th>Cuándo repasar</th><th>Qué repasar</th></tr>
+          <tr><td>Hoy</td><td>Los verbos que acabas de aprender</td></tr>
+          <tr><td>Mañana</td><td>Los de ayer (5 min)</td></tr>
+          <tr><td>En 3 días</td><td>Los de esta semana</td></tr>
+          <tr><td>En 1 semana</td><td>Los del mes</td></tr>
+        </table>
+
+        <h4>🚫 Errores que frenan tu progreso</h4>
+        <ul>
+          <li><strong>Traducir mentalmente palabra por palabra.</strong> Mejor aprende frases completas.</li>
+          <li><strong>Estudiar solo gramática sin hablar.</strong> El idioma se aprende usándolo.</li>
+          <li><strong>Saltar los irregulares "porque son difíciles".</strong> Son los más usados en la vida real.</li>
+          <li><strong>No escuchar inglés.</strong> Series, música, podcasts: son tu mejor maestro.</li>
+        </ul>
+
+        <div class="ok-box">Regla de oro: si puedes usar un verbo en una oración propia, ya es tuyo. Si solo lo reconoces al leer, aún no lo dominas.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ BÚSQUEDA Y FILTROS ============ -->
+  <input type="text" class="search-box" id="searchBox" placeholder="🔍 Buscar verbo en inglés o español...">
+
+  <div class="filter-row" id="filters">
+    <button class="active" data-cat="all">Todos</button>
+    <button data-cat="regular">🔵 Regulares</button>
+    <button data-cat="irregular">🔴 Irregulares</button>
+    <button data-cat="modal">🟣 Modales</button>
+    <button data-cat="phrasal">🟢 Phrasal Verbs</button>
+  </div>
+
+  <div id="verbsContainer"></div>
+
+</main>
+
+<footer>
+  <a href="https://jaid227.github.io/EntropiaDigital/" target="_blank" rel="noopener">
+    → © 2026 Mandrágora Entrópica | Desarrollo Web Estratégico ←
+  </a>
+</footer>
+
+<script>
+// ============ DATOS: VERBOS ============
+const verbos = [
+  // ================== REGULARES (30) ==================
+  { type:"regular", base:"work", past:"worked", future:"will work", es:"trabajar",
+    ejPast:"I worked from home yesterday.", ejPastEs:"Trabajé desde casa ayer.",
+    ejPres:"I work from home every day.", ejPresEs:"Trabajo desde casa todos los días.",
+    ejFut:"I will work from home tomorrow.", ejFutEs:"Trabajaré desde casa mañana." },
+
+  { type:"regular", base:"play", past:"played", future:"will play", es:"jugar / tocar",
+    ejPast:"She played the piano last night.", ejPastEs:"Ella tocó el piano anoche.",
+    ejPres:"She plays the piano every evening.", ejPresEs:"Ella toca el piano cada tarde.",
+    ejFut:"She will play the piano at the concert.", ejFutEs:"Ella tocará el piano en el concierto." },
+
+  { type:"regular", base:"study", past:"studied", future:"will study", es:"estudiar",
+    ejPast:"We studied all night for the exam.", ejPastEs:"Estudiamos toda la noche para el examen.",
+    ejPres:"We study English every Monday.", ejPresEs:"Estudiamos inglés todos los lunes.",
+    ejFut:"We will study for the final next week.", ejFutEs:"Estudiaremos para el final la próxima semana." },
+
+  { type:"regular", base:"watch", past:"watched", future:"will watch", es:"mirar / ver",
+    ejPast:"They watched a movie last night.", ejPastEs:"Ellos vieron una película anoche.",
+    ejPres:"They watch the news every morning.", ejPresEs:"Ellos ven las noticias cada mañana.",
+    ejFut:"They will watch the game tonight.", ejFutEs:"Ellos verán el partido esta noche." },
+
+  { type:"regular", base:"walk", past:"walked", future:"will walk", es:"caminar",
+    ejPast:"He walked to the park this morning.", ejPastEs:"Él caminó al parque esta mañana.",
+    ejPres:"He walks to work every day.", ejPresEs:"Él camina al trabajo todos los días.",
+    ejFut:"He will walk with us tomorrow.", ejFutEs:"Él caminará con nosotros mañana." },
+
+  { type:"regular", base:"talk", past:"talked", future:"will talk", es:"hablar",
+    ejPast:"We talked for hours on the phone.", ejPastEs:"Hablamos durante horas por teléfono.",
+    ejPres:"We talk every Sunday.", ejPresEs:"Hablamos cada domingo.",
+    ejFut:"We will talk about it tomorrow.", ejFutEs:"Hablaremos de eso mañana." },
+
+  { type:"regular", base:"listen", past:"listened", future:"will listen", es:"escuchar",
+    ejPast:"I listened to your advice.", ejPastEs:"Escuché tu consejo.",
+    ejPres:"I listen to music while I work.", ejPresEs:"Escucho música mientras trabajo.",
+    ejFut:"I will listen carefully next time.", ejFutEs:"Escucharé con atención la próxima vez." },
+
+  { type:"regular", base:"clean", past:"cleaned", future:"will clean", es:"limpiar",
+    ejPast:"She cleaned the whole house.", ejPastEs:"Ella limpió toda la casa.",
+    ejPres:"She cleans her room on Saturdays.", ejPresEs:"Ella limpia su cuarto los sábados.",
+    ejFut:"She will clean the kitchen later.", ejFutEs:"Ella limpiará la cocina más tarde." },
+
+  { type:"regular", base:"cook", past:"cooked", future:"will cook", es:"cocinar",
+    ejPast:"My dad cooked dinner last night.", ejPastEs:"Mi papá cocinó la cena anoche.",
+    ejPres:"My dad cooks on weekends.", ejPresEs:"Mi papá cocina los fines de semana.",
+    ejFut:"My dad will cook for the party.", ejFutEs:"Mi papá cocinará para la fiesta." },
+
+  { type:"regular", base:"open", past:"opened", future:"will open", es:"abrir",
+    ejPast:"He opened the door quietly.", ejPastEs:"Él abrió la puerta silenciosamente.",
+    ejPres:"He opens the store at 8 AM.", ejPresEs:"Él abre la tienda a las 8 AM.",
+    ejFut:"He will open the new branch soon.", ejFutEs:"Él abrirá la nueva sucursal pronto." },
+
+  { type:"regular", base:"close", past:"closed", future:"will close", es:"cerrar",
+    ejPast:"The store closed at 9 PM.", ejPastEs:"La tienda cerró a las 9 PM.",
+    ejPres:"The store closes at 9 PM every day.", ejPresEs:"La tienda cierra a las 9 PM todos los días.",
+    ejFut:"The store will close early tomorrow.", ejFutEs:"La tienda cerrará temprano mañana." },
+
+  { type:"regular", base:"help", past:"helped", future:"will help", es:"ayudar",
+    ejPast:"She helped me with my homework.", ejPastEs:"Ella me ayudó con mi tarea.",
+    ejPres:"She helps her mom every day.", ejPresEs:"Ella ayuda a su mamá todos los días.",
+    ejFut:"She will help us move next week.", ejFutEs:"Ella nos ayudará a mudarnos la próxima semana." },
+
+  { type:"regular", base:"call", past:"called", future:"will call", es:"llamar",
+    ejPast:"I called you three times.", ejPastEs:"Te llamé tres veces.",
+    ejPres:"I call my mom every Sunday.", ejPresEs:"Llamo a mi mamá cada domingo.",
+    ejFut:"I will call you when I arrive.", ejFutEs:"Te llamaré cuando llegue." },
+
+  { type:"regular", base:"wait", past:"waited", future:"will wait", es:"esperar",
+    ejPast:"We waited for the bus for an hour.", ejPastEs:"Esperamos el autobús por una hora.",
+    ejPres:"We wait here every morning.", ejPresEs:"Esperamos aquí cada mañana.",
+    ejFut:"We will wait until you come.", ejFutEs:"Esperaremos hasta que vengas." },
+
+  { type:"regular", base:"ask", past:"asked", future:"will ask", es:"preguntar / pedir",
+    ejPast:"He asked a very good question.", ejPastEs:"Él hizo una muy buena pregunta.",
+    ejPres:"He always asks for help.", ejPresEs:"Él siempre pide ayuda.",
+    ejFut:"He will ask his boss tomorrow.", ejFutEs:"Él le preguntará a su jefe mañana." },
+
+  { type:"regular", base:"answer", past:"answered", future:"will answer", es:"responder",
+    ejPast:"She answered the phone immediately.", ejPastEs:"Ella respondió el teléfono de inmediato.",
+    ejPres:"She answers every email.", ejPresEs:"Ella responde cada correo.",
+    ejFut:"She will answer your question soon.", ejFutEs:"Ella responderá tu pregunta pronto." },
+
+  { type:"regular", base:"finish", past:"finished", future:"will finish", es:"terminar",
+    ejPast:"I finished the project on time.", ejPastEs:"Terminé el proyecto a tiempo.",
+    ejPres:"I finish work at 6 PM.", ejPresEs:"Termino el trabajo a las 6 PM.",
+    ejFut:"I will finish it by Friday.", ejFutEs:"Lo terminaré para el viernes." },
+
+  { type:"regular", base:"start", past:"started", future:"will start", es:"empezar",
+    ejPast:"The class started at 8 AM.", ejPastEs:"La clase empezó a las 8 AM.",
+    ejPres:"The class starts at 8 AM.", ejPresEs:"La clase empieza a las 8 AM.",
+    ejFut:"The class will start next Monday.", ejFutEs:"La clase empezará el próximo lunes." },
+
+  { type:"regular", base:"change", past:"changed", future:"will change", es:"cambiar",
+    ejPast:"He changed his mind about the trip.", ejPastEs:"Él cambió de opinión sobre el viaje.",
+    ejPres:"He changes jobs often.", ejPresEs:"Él cambia de trabajo con frecuencia.",
+    ejFut:"He will change his routine next year.", ejFutEs:"Él cambiará su rutina el próximo año." },
+
+  { type:"regular", base:"travel", past:"traveled", future:"will travel", es:"viajar",
+    ejPast:"They traveled to Japan last summer.", ejPastEs:"Ellos viajaron a Japón el verano pasado.",
+    ejPres:"They travel to Europe every year.", ejPresEs:"Ellos viajan a Europa cada año.",
+    ejFut:"They will travel to Canada in December.", ejFutEs:"Ellos viajarán a Canadá en diciembre." },
+
+  { type:"regular", base:"visit", past:"visited", future:"will visit", es:"visitar",
+    ejPast:"We visited the museum yesterday.", ejPastEs:"Visitamos el museo ayer.",
+    ejPres:"We visit grandma every weekend.", ejPresEs:"Visitamos a la abuela cada fin de semana.",
+    ejFut:"We will visit you next month.", ejFutEs:"Te visitaremos el próximo mes." },
+
+  { type:"regular", base:"dance", past:"danced", future:"will dance", es:"bailar",
+    ejPast:"She danced all night at the party.", ejPastEs:"Ella bailó toda la noche en la fiesta.",
+    ejPres:"She dances every Friday.", ejPresEs:"Ella baila cada viernes.",
+    ejFut:"She will dance at the wedding.", ejFutEs:"Ella bailará en la boda." },
+
+  { type:"regular", base:"laugh", past:"laughed", future:"will laugh", es:"reír",
+    ejPast:"Everyone laughed at the joke.", ejPastEs:"Todos se rieron del chiste.",
+    ejPres:"He laughs at everything.", ejPresEs:"Él se ríe de todo.",
+    ejFut:"We will laugh about this someday.", ejFutEs:"Nos reiremos de esto algún día." },
+
+  { type:"regular", base:"cry", past:"cried", future:"will cry", es:"llorar",
+    ejPast:"The baby cried all night.", ejPastEs:"El bebé lloró toda la noche.",
+    ejPres:"The baby cries when he's hungry.", ejPresEs:"El bebé llora cuando tiene hambre.",
+    ejFut:"She will cry at the movie.", ejFutEs:"Ella llorará con la película." },
+
+  { type:"regular", base:"arrive", past:"arrived", future:"will arrive", es:"llegar",
+    ejPast:"They arrived late to the meeting.", ejPastEs:"Ellos llegaron tarde a la reunión.",
+    ejPres:"They arrive at 9 AM every day.", ejPresEs:"Ellos llegan a las 9 AM todos los días.",
+    ejFut:"They will arrive tomorrow morning.", ejFutEs:"Ellos llegarán mañana por la mañana." },
+
+  { type:"regular", base:"learn", past:"learned", future:"will learn", es:"aprender",
+    ejPast:"I learned English in high school.", ejPastEs:"Aprendí inglés en la preparatoria.",
+    ejPres:"I learn something new every day.", ejPresEs:"Aprendo algo nuevo cada día.",
+    ejFut:"I will learn French next year.", ejFutEs:"Aprenderé francés el próximo año." },
+
+  { type:"regular", base:"want", past:"wanted", future:"will want", es:"querer",
+    ejPast:"She wanted a new phone.", ejPastEs:"Ella quería un teléfono nuevo.",
+    ejPres:"She wants to travel the world.", ejPresEs:"Ella quiere viajar por el mundo.",
+    ejFut:"She will want to come with us.", ejFutEs:"Ella querrá venir con nosotros." },
+
+  { type:"regular", base:"need", past:"needed", future:"will need", es:"necesitar",
+    ejPast:"We needed more time.", ejPastEs:"Necesitábamos más tiempo.",
+    ejPres:"We need your help now.", ejPresEs:"Necesitamos tu ayuda ahora.",
+    ejFut:"We will need more supplies.", ejFutEs:"Necesitaremos más suministros." },
+
+  { type:"regular", base:"love", past:"loved", future:"will love", es:"amar / encantar",
+    ejPast:"I loved that movie.", ejPastEs:"Me encantó esa película.",
+    ejPres:"I love chocolate.", ejPresEs:"Me encanta el chocolate.",
+    ejFut:"You will love this place.", ejFutEs:"Te encantará este lugar." },
+
+  { type:"regular", base:"like", past:"liked", future:"will like", es:"gustar",
+    ejPast:"He liked the gift a lot.", ejPastEs:"Le gustó mucho el regalo.",
+    ejPres:"He likes spicy food.", ejPresEs:"Le gusta la comida picante.",
+    ejFut:"He will like your idea.", ejFutEs:"Le gustará tu idea." },
+
+  // ================== IRREGULARES (30) ==================
+  { type:"irregular", base:"be", past:"was / were", future:"will be", es:"ser / estar",
+    ejPast:"I was at home yesterday.", ejPastEs:"Estuve en casa ayer.",
+    ejPres:"I am at home right now.", ejPresEs:"Estoy en casa ahora mismo.",
+    ejFut:"I will be at home tomorrow.", ejFutEs:"Estaré en casa mañana." },
+
+  { type:"irregular", base:"go", past:"went", future:"will go", es:"ir",
+    ejPast:"We went to the beach last weekend.", ejPastEs:"Fuimos a la playa el fin de semana pasado.",
+    ejPres:"We go to the gym every day.", ejPresEs:"Vamos al gimnasio todos los días.",
+    ejFut:"We will go to the concert next month.", ejFutEs:"Iremos al concierto el próximo mes." },
+
+  { type:"irregular", base:"have", past:"had", future:"will have", es:"tener",
+    ejPast:"She had a great idea.", ejPastEs:"Ella tuvo una gran idea.",
+    ejPres:"She has two brothers.", ejPresEs:"Ella tiene dos hermanos.",
+    ejFut:"She will have a baby in May.", ejFutEs:"Ella tendrá un bebé en mayo." },
+
+  { type:"irregular", base:"do", past:"did", future:"will do", es:"hacer",
+    ejPast:"I did my best.", ejPastEs:"Hice lo mejor que pude.",
+    ejPres:"I do my homework every night.", ejPresEs:"Hago mi tarea cada noche.",
+    ejFut:"I will do it right now.", ejFutEs:"Lo haré ahora mismo." },
+
+  { type:"irregular", base:"say", past:"said", future:"will say", es:"decir",
+    ejPast:"He said he would come.", ejPastEs:"Él dijo que vendría.",
+    ejPres:"He says hello to everyone.", ejPresEs:"Él saluda a todos.",
+    ejFut:"He will say yes, I'm sure.", ejFutEs:"Él dirá que sí, estoy seguro." },
+
+  { type:"irregular", base:"see", past:"saw", future:"will see", es:"ver",
+    ejPast:"I saw a shooting star.", ejPastEs:"Vi una estrella fugaz.",
+    ejPres:"I see my friends every weekend.", ejPresEs:"Veo a mis amigos cada fin de semana.",
+    ejFut:"I will see you tomorrow.", ejFutEs:"Te veré mañana." },
+
+  { type:"irregular", base:"eat", past:"ate", future:"will eat", es:"comer",
+    ejPast:"We ate at a fancy restaurant.", ejPastEs:"Comimos en un restaurante elegante.",
+    ejPres:"We eat dinner at 8 PM.", ejPresEs:"Cenamos a las 8 PM.",
+    ejFut:"We will eat at grandma's on Sunday.", ejFutEs:"Comeremos en casa de la abuela el domingo." },
+
+  { type:"irregular", base:"drink", past:"drank", future:"will drink", es:"beber",
+    ejPast:"She drank all the water.", ejPastEs:"Ella se bebió toda el agua.",
+    ejPres:"She drinks coffee every morning.", ejPresEs:"Ella toma café cada mañana.",
+    ejFut:"She will drink tea tonight.", ejFutEs:"Ella tomará té esta noche." },
+
+  { type:"irregular", base:"come", past:"came", future:"will come", es:"venir",
+    ejPast:"They came to the party late.", ejPastEs:"Ellos llegaron tarde a la fiesta.",
+    ejPres:"They come here every summer.", ejPresEs:"Ellos vienen aquí cada verano.",
+    ejFut:"They will come to visit us soon.", ejFutEs:"Ellos vendrán a visitarnos pronto." },
+
+  { type:"irregular", base:"take", past:"took", future:"will take", es:"tomar / llevar",
+    ejPast:"He took the bus this morning.", ejPastEs:"Él tomó el autobús esta mañana.",
+    ejPres:"He takes the bus every day.", ejPresEs:"Él toma el autobús todos los días.",
+    ejFut:"He will take a taxi tonight.", ejFutEs:"Él tomará un taxi esta noche." },
+
+  { type:"irregular", base:"give", past:"gave", future:"will give", es:"dar",
+    ejPast:"I gave her a book.", ejPastEs:"Le di un libro.",
+    ejPres:"I give to charity every month.", ejPresEs:"Doy a la caridad cada mes.",
+    ejFut:"I will give you the money tomorrow.", ejFutEs:"Te daré el dinero mañana." },
+
+  { type:"irregular", base:"make", past:"made", future:"will make", es:"hacer / fabricar",
+    ejPast:"She made a delicious cake.", ejPastEs:"Ella hizo un pastel delicioso.",
+    ejPres:"She makes breakfast every day.", ejPresEs:"Ella prepara el desayuno todos los días.",
+    ejFut:"She will make dinner for us.", ejFutEs:"Ella nos preparará la cena." },
+
+  { type:"irregular", base:"know", past:"knew", future:"will know", es:"saber / conocer",
+    ejPast:"I knew the answer.", ejPastEs:"Sabía la respuesta.",
+    ejPres:"I know her very well.", ejPresEs:"La conozco muy bien.",
+    ejFut:"I will know the results tomorrow.", ejFutEs:"Sabré los resultados mañana." },
+
+  { type:"irregular", base:"think", past:"thought", future:"will think", es:"pensar",
+    ejPast:"He thought about it all day.", ejPastEs:"Él pensó en eso todo el día.",
+    ejPres:"He thinks it's a good idea.", ejPresEs:"Él piensa que es una buena idea.",
+    ejFut:"He will think about your offer.", ejFutEs:"Él pensará en tu oferta." },
+
+  { type:"irregular", base:"get", past:"got", future:"will get", es:"obtener / conseguir",
+    ejPast:"I got a new job.", ejPastEs:"Conseguí un nuevo trabajo.",
+    ejPres:"I get paid every Friday.", ejPresEs:"Me pagan cada viernes.",
+    ejFut:"I will get my results next week.", ejFutEs:"Obtendré mis resultados la próxima semana." },
+
+  { type:"irregular", base:"write", past:"wrote", future:"will write", es:"escribir",
+    ejPast:"She wrote a beautiful poem.", ejPastEs:"Ella escribió un hermoso poema.",
+    ejPres:"She writes in her diary every night.", ejPresEs:"Ella escribe en su diario cada noche.",
+    ejFut:"She will write a novel someday.", ejFutEs:"Ella escribirá una novela algún día." },
+
+  { type:"irregular", base:"read", past:"read", future:"will read", es:"leer",
+    ejPast:"I read that book last month.", ejPastEs:"Leí ese libro el mes pasado.",
+    ejPres:"I read before going to bed.", ejPresEs:"Leo antes de irme a la cama.",
+    ejFut:"I will read the new book tomorrow.", ejFutEs:"Leeré el nuevo libro mañana." },
+
+  { type:"irregular", base:"run", past:"ran", future:"will run", es:"correr",
+    ejPast:"He ran five kilometers today.", ejPastEs:"Él corrió cinco kilómetros hoy.",
+    ejPres:"He runs in the park every morning.", ejPresEs:"Él corre en el parque cada mañana.",
+    ejFut:"He will run a marathon next year.", ejFutEs:"Él correrá un maratón el próximo año." },
+
+  { type:"irregular", base:"sleep", past:"slept", future:"will sleep", es:"dormir",
+    ejPast:"I slept only four hours.", ejPastEs:"Solo dormí cuatro horas.",
+    ejPres:"I sleep eight hours every night.", ejPresEs:"Duermo ocho horas cada noche.",
+    ejFut:"I will sleep late tomorrow.", ejFutEs:"Dormiré hasta tarde mañana." },
+
+  { type:"irregular", base:"speak", past:"spoke", future:"will speak", es:"hablar",
+    ejPast:"She spoke to me in English.", ejPastEs:"Ella me habló en inglés.",
+    ejPres:"She speaks three languages.", ejPresEs:"Ella habla tres idiomas.",
+    ejFut:"She will speak at the conference.", ejFutEs:"Ella hablará en la conferencia." },
+
+  { type:"irregular", base:"buy", past:"bought", future:"will buy", es:"comprar",
+    ejPast:"We bought a new car.", ejPastEs:"Compramos un coche nuevo.",
+    ejPres:"We buy fresh bread daily.", ejPresEs:"Compramos pan fresco a diario.",
+    ejFut:"We will buy a house next year.", ejFutEs:"Compraremos una casa el próximo año." },
+
+  { type:"irregular", base:"bring", past:"brought", future:"will bring", es:"traer",
+    ejPast:"He brought snacks to the party.", ejPastEs:"Él trajo botanas a la fiesta.",
+    ejPres:"He brings his lunch to work.", ejPresEs:"Él trae su almuerzo al trabajo.",
+    ejFut:"He will bring the documents tomorrow.", ejFutEs:"Él traerá los documentos mañana." },
+
+  { type:"irregular", base:"teach", past:"taught", future:"will teach", es:"enseñar",
+    ejPast:"My mom taught me to cook.", ejPastEs:"Mi mamá me enseñó a cocinar.",
+    ejPres:"She teaches math at school.", ejPresEs:"Ella enseña matemáticas en la escuela.",
+    ejFut:"She will teach online next semester.", ejFutEs:"Ella enseñará en línea el próximo semestre." },
+
+  { type:"irregular", base:"leave", past:"left", future:"will leave", es:"irse / dejar",
+    ejPast:"They left early this morning.", ejPastEs:"Ellos se fueron temprano esta mañana.",
+    ejPres:"They leave work at 6 PM.", ejPresEs:"Ellos salen del trabajo a las 6 PM.",
+    ejFut:"They will leave for vacation on Friday.", ejFutEs:"Ellos saldrán de vacaciones el viernes." },
+
+  { type:"irregular", base:"feel", past:"felt", future:"will feel", es:"sentir",
+    ejPast:"I felt happy yesterday.", ejPastEs:"Me sentí feliz ayer.",
+    ejPres:"I feel great today.", ejPresEs:"Me siento genial hoy.",
+    ejFut:"I will feel better tomorrow.", ejFutEs:"Me sentiré mejor mañana." },
+
+  { type:"irregular", base:"find", past:"found", future:"will find", es:"encontrar",
+    ejPast:"She found her keys under the sofa.", ejPastEs:"Ella encontró sus llaves bajo el sofá.",
+    ejPres:"She finds new ideas every day.", ejPresEs:"Ella encuentra nuevas ideas cada día.",
+    ejFut:"She will find a solution soon.", ejFutEs:"Ella encontrará una solución pronto." },
+
+  { type:"irregular", base:"lose", past:"lost", future:"will lose", es:"perder",
+    ejPast:"He lost his wallet at the park.", ejPastEs:"Él perdió su cartera en el parque.",
+    ejPres:"He loses his keys often.", ejPresEs:"Él pierde sus llaves con frecuencia.",
+    ejFut:"He will lose the game if he doesn't focus.", ejFutEs:"Él perderá el juego si no se concentra." },
+
+  { type:"irregular", base:"win", past:"won", future:"will win", es:"ganar",
+    ejPast:"Our team won the championship.", ejPastEs:"Nuestro equipo ganó el campeonato.",
+    ejPres:"Our team wins most games.", ejPresEs:"Nuestro equipo gana la mayoría de los partidos.",
+    ejFut:"Our team will win the final.", ejFutEs:"Nuestro equipo ganará la final." },
+
+  { type:"irregular", base:"break", past:"broke", future:"will break", es:"romper",
+    ejPast:"I broke my phone yesterday.", ejPastEs:"Rompí mi teléfono ayer.",
+    ejPres:"He breaks a glass every week.", ejPresEs:"Él rompe un vaso cada semana.",
+    ejFut:"She will break the record next year.", ejFutEs:"Ella romperá el récord el próximo año." },
+
+  { type:"irregular", base:"meet", past:"met", future:"will meet", es:"conocer / reunirse",
+    ejPast:"I met her at a wedding.", ejPastEs:"La conocí en una boda.",
+    ejPres:"We meet every Monday.", ejPresEs:"Nos reunimos cada lunes.",
+    ejFut:"We will meet at the café tomorrow.", ejFutEs:"Nos reuniremos en el café mañana." },
+
+  // ================== MODALES (15) ==================
+  { type:"modal", base:"can", past:"could", future:"will be able to", es:"poder (habilidad)",
+    ejPast:"I could swim when I was five.", ejPastEs:"Podía nadar cuando tenía cinco años.",
+    ejPres:"I can swim very well.", ejPresEs:"Puedo nadar muy bien.",
+    ejFut:"I will be able to swim in the race.", ejFutEs:"Podré nadar en la carrera." },
+
+  { type:"modal", base:"may", past:"might", future:"will possibly", es:"poder (permiso)",
+    ejPast:"He might have been at home.", ejPastEs:"Él pudo haber estado en casa.",
+    ejPres:"May I come in?", ejPresEs:"¿Puedo pasar?",
+    ejFut:"I will possibly visit you next week.", ejFutEs:"Posiblemente te visite la próxima semana." },
+
+  { type:"modal", base:"must", past:"had to", future:"will have to", es:"deber (obligación)",
+    ejPast:"I had to work late yesterday.", ejPastEs:"Tuve que trabajar hasta tarde ayer.",
+    ejPres:"You must wear a seatbelt.", ejPresEs:"Debes usar cinturón de seguridad.",
+    ejFut:"I will have to study for the exam.", ejFutEs:"Tendré que estudiar para el examen." },
+
+  { type:"modal", base:"should", past:"should have", future:"will should", es:"debería (consejo)",
+    ejPast:"You should have called me.", ejPastEs:"Debiste haberme llamado.",
+    ejPres:"You should see a doctor.", ejPresEs:"Deberías ver a un doctor.",
+    ejFut:"You will should rest tomorrow. (poco usado)", ejFutEs:"Deberías descansar mañana. (poco usado)" },
+
+  { type:"modal", base:"will", past:"would", future:"—", es:"(futuro / voluntad)",
+    ejPast:"He said he would help.", ejPastEs:"Él dijo que ayudaría.",
+    ejPres:"I will help you now.", ejPresEs:"Te ayudaré ahora.",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"would", past:"would have", future:"—", es:"(condicional)",
+    ejPast:"I would have gone if invited.", ejPastEs:"Habría ido si me hubieran invitado.",
+    ejPres:"I would travel if I had money.", ejPresEs:"Viajaría si tuviera dinero.",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"shall", past:"should", future:"—", es:"(futuro formal)",
+    ejPast:"I should have arrived earlier.", ejPastEs:"Debí haber llegado más temprano.",
+    ejPres:"Shall we dance?", ejPresEs:"¿Bailamos?",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"might", past:"might have", future:"—", es:"podría (posibilidad)",
+    ejPast:"She might have missed the bus.", ejPastEs:"Ella pudo haber perdido el autobús.",
+    ejPres:"It might rain later.", ejPresEs:"Podría llover más tarde.",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"could", past:"could have", future:"—", es:"podría / podía",
+    ejPast:"I could have helped you.", ejPastEs:"Pude haberte ayudado.",
+    ejPres:"Could you help me, please?", ejPresEs:"¿Podrías ayudarme, por favor?",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"have to", past:"had to", future:"will have to", es:"tener que",
+    ejPast:"I had to leave early.", ejPastEs:"Tuve que irme temprano.",
+    ejPres:"I have to study tonight.", ejPresEs:"Tengo que estudiar esta noche.",
+    ejFut:"I will have to wake up early.", ejFutEs:"Tendré que despertarme temprano." },
+
+  { type:"modal", base:"need to", past:"needed to", future:"will need to", es:"necesitar hacer",
+    ejPast:"I needed to talk to you.", ejPastEs:"Necesitaba hablar contigo.",
+    ejPres:"You need to rest.", ejPresEs:"Necesitas descansar.",
+    ejFut:"I will need to buy a new laptop.", ejFutEs:"Necesitaré comprar una laptop nueva." },
+
+  { type:"modal", base:"ought to", past:"ought to have", future:"—", es:"debería (moral)",
+    ejPast:"You ought to have apologized.", ejPastEs:"Debiste haberte disculpado.",
+    ejPres:"You ought to apologize.", ejPresEs:"Deberías disculparte.",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"used to", past:"used to", future:"—", es:"solía (hábito pasado)",
+    ejPast:"I used to play soccer as a kid.", ejPastEs:"Solía jugar fútbol de niño.",
+    ejPres:"I don't play soccer anymore. (no presente directo)", ejPresEs:"Ya no juego fútbol. (sin presente directo)",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"had better", past:"—", future:"—", es:"más vale que",
+    ejPast:"—", ejPastEs:"—",
+    ejPres:"You had better leave now.", ejPresEs:"Más vale que te vayas ahora.",
+    ejFut:"—", ejFutEs:"—" },
+
+  { type:"modal", base:"be able to", past:"was able to", future:"will be able to", es:"ser capaz de",
+    ejPast:"She was able to finish on time.", ejPastEs:"Ella pudo terminar a tiempo.",
+    ejPres:"She is able to solve any problem.", ejPresEs:"Ella es capaz de resolver cualquier problema.",
+    ejFut:"She will be able to help us tomorrow.", ejFutEs:"Ella podrá ayudarnos mañana." },
+
+  // ================== PHRASAL VERBS (35) ==================
+  { type:"phrasal", base:"get up", past:"got up", future:"will get up", es:"levantarse",
+    ejPast:"I got up at 6 AM today.", ejPastEs:"Me levanté a las 6 AM hoy.",
+    ejPres:"I get up at 6 AM every day.", ejPresEs:"Me levanto a las 6 AM todos los días.",
+    ejFut:"I will get up early tomorrow.", ejFutEs:"Me levantaré temprano mañana." },
+
+  { type:"phrasal", base:"wake up", past:"woke up", future:"will wake up", es:"despertar(se)",
+    ejPast:"She woke up late yesterday.", ejPastEs:"Ella se despertó tarde ayer.",
+    ejPres:"She wakes up at 7 AM.", ejPresEs:"Ella se despierta a las 7 AM.",
+    ejFut:"She will wake up early on Monday.", ejFutEs:"Ella se despertará temprano el lunes." },
+
+  { type:"phrasal", base:"turn on", past:"turned on", future:"will turn on", es:"encender",
+    ejPast:"He turned on the TV.", ejPastEs:"Él encendió la televisión.",
+    ejPres:"He turns on the radio every morning.", ejPresEs:"Él enciende la radio cada mañana.",
+    ejFut:"He will turn on the lights soon.", ejFutEs:"Él encenderá las luces pronto." },
+
+  { type:"phrasal", base:"turn off", past:"turned off", future:"will turn off", es:"apagar",
+    ejPast:"She turned off the lights.", ejPastEs:"Ella apagó las luces.",
+    ejPres:"She turns off her phone at night.", ejPresEs:"Ella apaga su teléfono por la noche.",
+    ejFut:"She will turn off the computer later.", ejFutEs:"Ella apagará la computadora más tarde." },
+
+  { type:"phrasal", base:"look for", past:"looked for", future:"will look for", es:"buscar",
+    ejPast:"I looked for my keys everywhere.", ejPastEs:"Busqué mis llaves por todas partes.",
+    ejPres:"I'm looking for a new job.", ejPresEs:"Estoy buscando un nuevo trabajo.",
+    ejFut:"I will look for it tomorrow.", ejFutEs:"Lo buscaré mañana." },
+
+  { type:"phrasal", base:"find out", past:"found out", future:"will find out", es:"descubrir",
+    ejPast:"She found out the truth.", ejPastEs:"Ella descubrió la verdad.",
+    ejPres:"She always finds out everything.", ejPresEs:"Ella siempre descubre todo.",
+    ejFut:"She will find out tomorrow.", ejFutEs:"Ella lo descubrirá mañana." },
+
+  { type:"phrasal", base:"give up", past:"gave up", future:"will give up", es:"rendirse",
+    ejPast:"He gave up smoking last year.", ejPastEs:"Él dejó de fumar el año pasado.",
+    ejPres:"He never gives up.", ejPresEs:"Él nunca se rinde.",
+    ejFut:"He will give up if it's too hard.", ejFutEs:"Él se rendirá si es muy difícil." },
+
+  { type:"phrasal", base:"put on", past:"put on", future:"will put on", es:"ponerse (ropa)",
+    ejPast:"He put on his jacket.", ejPastEs:"Él se puso su chaqueta.",
+    ejPres:"He puts on his shoes before leaving.", ejPresEs:"Él se pone los zapatos antes de salir.",
+    ejFut:"He will put on a suit for the meeting.", ejFutEs:"Él se pondrá un traje para la reunión." },
+
+  { type:"phrasal", base:"take off", past:"took off", future:"will take off", es:"quitarse / despegar",
+    ejPast:"The plane took off on time.", ejPastEs:"El avión despegó a tiempo.",
+    ejPres:"The plane takes off every hour.", ejPresEs:"El avión despega cada hora.",
+    ejFut:"The plane will take off at 5 PM.", ejFutEs:"El avión despegará a las 5 PM." },
+
+  { type:"phrasal", base:"come back", past:"came back", future:"will come back", es:"regresar",
+    ejPast:"She came back from her trip.", ejPastEs:"Ella regresó de su viaje.",
+    ejPres:"She comes back home every weekend.", ejPresEs:"Ella regresa a casa cada fin de semana.",
+    ejFut:"She will come back next month.", ejFutEs:"Ella regresará el próximo mes." },
+
+  { type:"phrasal", base:"go out", past:"went out", future:"will go out", es:"salir",
+    ejPast:"We went out last night.", ejPastEs:"Salimos anoche.",
+    ejPres:"We go out every Friday.", ejPresEs:"Salimos cada viernes.",
+    ejFut:"We will go out this weekend.", ejFutEs:"Saldremos este fin de semana." },
+
+  { type:"phrasal", base:"come in", past:"came in", future:"will come in", es:"entrar",
+    ejPast:"He came in without knocking.", ejPastEs:"Él entró sin tocar.",
+    ejPres:"He comes in at 9 AM.", ejPresEs:"Él entra a las 9 AM.",
+    ejFut:"He will come in later today.", ejFutEs:"Él entrará más tarde hoy." },
+
+  { type:"phrasal", base:"get in", past:"got in", future:"will get in", es:"subir (vehículo)",
+    ejPast:"He got in the car quickly.", ejPastEs:"Él subió al coche rápidamente.",
+    ejPres:"He gets in the car every morning.", ejPresEs:"Él sube al coche cada mañana.",
+    ejFut:"He will get in the taxi soon.", ejFutEs:"Él subirá al taxi pronto." },
+
+  { type:"phrasal", base:"get out", past:"got out", future:"will get out", es:"salir / bajarse",
+    ejPast:"She got out of the taxi.", ejPastEs:"Ella se bajó del taxi.",
+    ejPres:"She gets out at the next stop.", ejPresEs:"Ella se baja en la próxima parada.",
+    ejFut:"She will get out in five minutes.", ejFutEs:"Ella se bajará en cinco minutos." },
+
+  { type:"phrasal", base:"look after", past:"looked after", future:"will look after", es:"cuidar",
+    ejPast:"I looked after my sister yesterday.", ejPastEs:"Cuidé a mi hermana ayer.",
+    ejPres:"I look after my little sister.", ejPresEs:"Cuido a mi hermanita.",
+    ejFut:"I will look after the dog this weekend.", ejFutEs:"Cuidaré al perro este fin de semana." },
+
+  { type:"phrasal", base:"look forward to", past:"looked forward to", future:"will look forward to", es:"esperar con ganas",
+    ejPast:"I looked forward to the trip.", ejPastEs:"Esperaba con ganas el viaje.",
+    ejPres:"I look forward to your reply.", ejPresEs:"Espero con ganas tu respuesta.",
+    ejFut:"I will look forward to seeing you.", ejFutEs:"Esperaré con ganas verte." },
+
+  { type:"phrasal", base:"run out of", past:"ran out of", future:"will run out of", es:"quedarse sin",
+    ejPast:"We ran out of milk.", ejPastEs:"Nos quedamos sin leche.",
+    ejPres:"We run out of coffee every week.", ejPresEs:"Nos quedamos sin café cada semana.",
+    ejFut:"We will run out of time.", ejFutEs:"Nos quedaremos sin tiempo." },
+
+  { type:"phrasal", base:"put up with", past:"put up with", future:"will put up with", es:"aguantar",
+    ejPast:"I put up with the noise.", ejPastEs:"Aguanté el ruido.",
+    ejPres:"I can't put up with the noise.", ejPresEs:"No puedo aguantar el ruido.",
+    ejFut:"I won't put up with it anymore.", ejFutEs:"Ya no lo aguantaré más." },
+
+  { type:"phrasal", base:"come up with", past:"came up with", future:"will come up with", es:"idear / ocurrírsele",
+    ejPast:"She came up with a great plan.", ejPastEs:"A ella se le ocurrió un gran plan.",
+    ejPres:"She comes up with ideas easily.", ejPresEs:"A ella se le ocurren ideas fácilmente.",
+    ejFut:"She will come up with a solution.", ejFutEs:"A ella se le ocurrirá una solución." },
+
+  { type:"phrasal", base:"figure out", past:"figured out", future:"will figure out", es:"descifrar",
+    ejPast:"I figured out the puzzle.", ejPastEs:"Descifré el acertijo.",
+    ejPres:"I figure out problems quickly.", ejPresEs:"Descifro problemas rápidamente.",
+    ejFut:"I will figure it out soon.", ejFutEs:"Lo descifraré pronto." },
+
+  { type:"phrasal", base:"point out", past:"pointed out", future:"will point out", es:"señalar",
+    ejPast:"He pointed out a mistake.", ejPastEs:"Él señaló un error.",
+    ejPres:"He points out details others miss.", ejPresEs:"Él señala detalles que otros no ven.",
+    ejFut:"He will point out the issue tomorrow.", ejFutEs:"Él señalará el problema mañana." },
+
+  { type:"phrasal", base:"sort out", past:"sorted out", future:"will sort out", es:"resolver",
+    ejPast:"We sorted out the problem.", ejPastEs:"Resolvimos el problema.",
+    ejPres:"We sort out issues quickly.", ejPresEs:"Resolvemos los problemas rápidamente.",
+    ejFut:"We will sort it out tomorrow.", ejFutEs:"Lo resolveremos mañana." },
+
+  { type:"phrasal", base:"work out", past:"worked out", future:"will work out", es:"ejercicio / resolver",
+    ejPast:"Everything worked out fine.", ejPastEs:"Todo salió bien.",
+    ejPres:"I work out at the gym.", ejPresEs:"Hago ejercicio en el gimnasio.",
+    ejFut:"Everything will work out in the end.", ejFutEs:"Todo se resolverá al final." },
+
+  { type:"phrasal", base:"take over", past:"took over", future:"will take over", es:"hacerse cargo",
+    ejPast:"She took over the project.", ejPastEs:"Ella se hizo cargo del proyecto.",
+    ejPres:"She takes over when the boss is away.", ejPresEs:"Ella se hace cargo cuando el jefe no está.",
+    ejFut:"She will take over next month.", ejFutEs:"Ella se hará cargo el próximo mes." },
+
+  { type:"phrasal", base:"give in", past:"gave in", future:"will give in", es:"ceder",
+    ejPast:"He finally gave in.", ejPastEs:"Finalmente cedió.",
+    ejPres:"He never gives in to pressure.", ejPresEs:"Él nunca cede a la presión.",
+    ejFut:"He will give in eventually.", ejFutEs:"Él cederá eventualmente." },
+
+  { type:"phrasal", base:"break down", past:"broke down", future:"will break down", es:"averiarse",
+    ejPast:"The car broke down on the highway.", ejPastEs:"El coche se averió en la autopista.",
+    ejPres:"This car breaks down often.", ejPresEs:"Este coche se avería con frecuencia.",
+    ejFut:"It will break down if you don't fix it.", ejFutEs:"Se averiará si no lo arreglas." },
+
+  { type:"phrasal", base:"break up", past:"broke up", future:"will break up", es:"terminar (relación)",
+    ejPast:"They broke up last month.", ejPastEs:"Ellos terminaron el mes pasado.",
+    ejPres:"They break up and get back together.", ejPresEs:"Terminan y vuelven.",
+    ejFut:"They will break up if things don't change.", ejFutEs:"Terminarán si las cosas no cambian." },
+
+  { type:"phrasal", base:"grow up", past:"grew up", future:"will grow up", es:"crecer",
+    ejPast:"I grew up in a small town.", ejPastEs:"Crecí en un pueblo pequeño.",
+    ejPres:"Kids grow up so fast.", ejPresEs:"Los niños crecen muy rápido.",
+    ejFut:"He will grow up to be a doctor.", ejFutEs:"Él crecerá y será doctor." },
+
+  { type:"phrasal", base:"show up", past:"showed up", future:"will show up", es:"aparecer",
+    ejPast:"He showed up late again.", ejPastEs:"Él apareció tarde otra vez.",
+    ejPres:"He always shows up on time.", ejPresEs:"Él siempre aparece a tiempo.",
+    ejFut:"He will show up eventually.", ejFutEs:"Él aparecerá eventualmente." },
+
+  { type:"phrasal", base:"stand up", past:"stood up", future:"will stand up", es:"ponerse de pie",
+    ejPast:"Everyone stood up for the anthem.", ejPastEs:"Todos se pusieron de pie para el himno.",
+    ejPres:"We stand up when the teacher enters.", ejPresEs:"Nos ponemos de pie cuando entra el maestro.",
+    ejFut:"We will stand up when they arrive.", ejFutEs:"Nos pondremos de pie cuando lleguen." },
+
+  { type:"phrasal", base:"sit down", past:"sat down", future:"will sit down", es:"sentarse",
+    ejPast:"He sat down on the couch.", ejPastEs:"Él se sentó en el sofá.",
+    ejPres:"He sits down to read every night.", ejPresEs:"Él se sienta a leer cada noche.",
+    ejFut:"He will sit down with us later.", ejFutEs:"Él se sentará con nosotros más tarde." },
+
+  { type:"phrasal", base:"calm down", past:"calmed down", future:"will calm down", es:"calmarse",
+    ejPast:"She calmed down after a while.", ejPastEs:"Ella se calmó después de un rato.",
+    ejPres:"She calms down quickly.", ejPresEs:"Ella se calma rápidamente.",
+    ejFut:"She will calm down soon.", ejFutEs:"Ella se calmará pronto." },
+
+  { type:"phrasal", base:"hurry up", past:"hurried up", future:"will hurry up", es:"apresurarse",
+    ejPast:"He hurried up to catch the bus.", ejPastEs:"Él se apresuró para alcanzar el autobús.",
+    ejPres:"He always hurries up in the morning.", ejPresEs:"Él siempre se apresura por la mañana.",
+    ejFut:"He will hurry up if we call him.", ejFutEs:"Él se apresurará si lo llamamos." },
+
+  { type:"phrasal", base:"throw away", past:"threw away", future:"will throw away", es:"tirar (basura)",
+    ejPast:"He threw away the old newspapers.", ejPastEs:"Él tiró los periódicos viejos.",
+    ejPres:"He throws away junk every month.", ejPresEs:"Él tira basura cada mes.",
+    ejFut:"He will throw away the broken chair.", ejFutEs:"Él tirará la silla rota." },
+
+  { type:"phrasal", base:"try on", past:"tried on", future:"will try on", es:"probarse (ropa)",
+    ejPast:"She tried on the dress.", ejPastEs:"Ella se probó el vestido.",
+    ejPres:"She tries on clothes before buying.", ejPresEs:"Ella se prueba la ropa antes de comprar.",
+    ejFut:"She will try on the shoes tomorrow.", ejFutEs:"Ella se probará los zapatos mañana." },
+];
+
+// ============ ESTADO ============
+let aprendidos = JSON.parse(localStorage.getItem('verbosAprendidos') || '[]');
+let filtroActual = 'all';
+let busqueda = '';
+
+// ============ TEMA ============
+const themeBtn = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+themeBtn.textContent = savedTheme === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+
+themeBtn.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  themeBtn.textContent = next === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+});
+
+// ============ GUÍA: TOGGLES ============
+document.querySelectorAll('.guide-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.target;
+    const panel = document.getElementById(targetId);
+    btn.classList.toggle('open');
+    panel.classList.toggle('open');
+  });
+});
+
+// ============ CATEGORÍAS ============
+const catNames = {
+  regular: "🔵 Verbos Regulares",
+  irregular: "🔴 Verbos Irregulares",
+  modal: "🟣 Verbos Modales",
+  phrasal: "🟢 Phrasal Verbs"
+};
+
+const typeLabels = {
+  regular: "Regular",
+  irregular: "Irregular",
+  modal: "Modal",
+  phrasal: "Phrasal Verb"
+};
+
+// ============ INTRO DE CADA CATEGORÍA ============
+const catIntro = {
+  regular: {
+    title: "🔵 ¿Qué es un verbo regular?",
+    desc: "Un verbo regular forma su <strong>pasado</strong> y <strong>participio</strong> agregando <code>-ed</code> al final. Son predecibles y los más fáciles de aprender.",
+    tips: [
+      "Regla general: <code>work → worked</code>, <code>play → played</code>",
+      "Si termina en <code>-e</code>: solo agrega <code>-d</code> → <code>live → lived</code>",
+      "Si termina en consonante + <code>y</code>: cambia a <code>ied</code> → <code>study → studied</code>",
+      "Si termina en vocal + <code>y</code>: solo agrega <code>-ed</code> → <code>play → played</code>",
+      "El futuro siempre es <code>will + verbo base</code>, sin importar el tipo"
+    ]
+  },
+  irregular: {
+    title: "🔴 ¿Qué es un verbo irregular?",
+    desc: "Un verbo irregular <strong>NO</strong> sigue la regla del <code>-ed</code>. Cada uno tiene su propio pasado, y hay que <strong>memorizarlo</strong>. Son los más usados en inglés.",
+    tips: [
+      "Agrúpalos por patrón: <code>sing → sang → sung</code>",
+      "Algunos no cambian: <code>cut → cut → cut</code>",
+      "Otros cambian la vocal: <code>drink → drank → drunk</code>",
+      "Con 50 irregulares ya cubres el 90% del habla diaria",
+      "Practícalos en voz alta, todos los días, poco a poco"
+    ]
+  },
+  modal: {
+    title: "🟣 ¿Qué es un verbo modal?",
+    desc: "Los modales son auxiliares que expresan <strong>actitud</strong>: posibilidad, obligación, permiso o habilidad. Van siempre seguidos de un verbo en <strong>forma base</strong>.",
+    tips: [
+      "Nunca llevan <code>-s</code>: <em>She can</em> ✅, <em>She cans</em> ❌",
+      "Nunca llevan <code>to</code>: <em>I must go</em> ✅, <em>I must to go</em> ❌",
+      "No se combinan dos modales: usa <code>will be able to</code> en vez de <em>will can</em>",
+      "Algunos cambian de forma en pasado: <code>can → could</code>, <code>must → had to</code>",
+      "Son clave para sonar educado: <em>Could you...?</em>, <em>Would you...?</em>"
+    ]
+  },
+  phrasal: {
+    title: "🟢 ¿Qué es un Phrasal Verb?",
+    desc: "Un phrasal verb es la unión de <strong>verbo + preposición/adverbio</strong> que juntos crean un <strong>significado nuevo</strong>. Son esenciales para entender inglés real.",
+    tips: [
+      "El significado no es literal: <em>give up</em> = rendirse, no 'dar arriba'",
+      "Apréndelos en contexto, con la frase completa",
+      "Algunos son separables: <em>turn off the TV</em> = <em>turn the TV off</em>",
+      "Otros no se pueden separar: <em>look after the baby</em> ✅",
+      "Con 200 phrasal verbs frecuentes ya entiendes el 90% de las conversaciones"
+    ]
+  }
+};
+
+// ============ RENDER ============
+const container = document.getElementById('verbsContainer');
+
+function render() {
+  container.innerHTML = '';
+  const q = busqueda.toLowerCase();
+
+  const filtrados = verbos.filter(v => {
+    const matchCat = filtroActual === 'all' || v.type === filtroActual;
+    const matchSearch = !q ||
+      v.base.toLowerCase().includes(q) ||
+      v.past.toLowerCase().includes(q) ||
+      v.es.toLowerCase().includes(q) ||
+      v.ejPast.toLowerCase().includes(q) ||
+      v.ejPres.toLowerCase().includes(q) ||
+      v.ejFut.toLowerCase().includes(q);
+    return matchCat && matchSearch;
+  });
+
+  if (filtrados.length === 0) {
+    container.innerHTML = '<p class="empty">No se encontraron verbos.</p>';
+    actualizarProgreso();
+    return;
+  }
+
+  const grupos = {};
+  filtrados.forEach(v => {
+    if (!grupos[v.type]) grupos[v.type] = [];
+    grupos[v.type].push(v);
+  });
+
+  Object.keys(grupos).forEach(type => {
+    // Título
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.textContent = catNames[type] || type;
+    container.appendChild(title);
+
+    // Panel explicativo de la categoría
+    if (catIntro[type]) {
+      const intro = catIntro[type];
+      const info = document.createElement('div');
+      info.className = 'category-intro';
+      info.innerHTML = `
+        <h4>${intro.title}</h4>
+        <p>${intro.desc}</p>
+        <ul>
+          ${intro.tips.map(t => `<li>${t}</li>`).join('')}
+        </ul>
+      `;
+      container.appendChild(info);
+    }
+
+    // Tarjetas de verbos
+    grupos[type].forEach(v => {
+      const isLearned = aprendidos.includes(v.base);
+      const card = document.createElement('div');
+      card.className = 'verb-card' + (isLearned ? ' learned' : '');
+
+      const key = encodeURIComponent(v.base);
+      card.innerHTML = `
+        <div class="verb-check">
+          <label>Aprendido</label>
+          <input type="checkbox" data-key="${key}" ${isLearned ? 'checked' : ''}>
+        </div>
+
+        <span class="type-badge type-${v.type}">${typeLabels[v.type]}</span>
+
+        <div class="verb-top">
+          <div class="verb-slot verb-past">
+            <div class="label">Pasado</div>
+            <div class="value">${v.past}</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="verb-slot verb-center">
+            <div class="label">Verbo</div>
+            <div class="verb-base">${v.base}</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="verb-slot verb-future">
+            <div class="label">Futuro</div>
+            <div class="value">${v.future}</div>
+          </div>
+        </div>
+
+        <div class="verb-meaning">${v.es}</div>
+
+        <div class="examples-title">Ejemplos en los tres tiempos</div>
+
+        <div class="example-row past">
+          <span class="ex-tag past">Pasado</span>
+          <div class="ex-text">
+            <span class="ex-en">${v.ejPast}</span>
+            <span class="ex-es">${v.ejPastEs}</span>
+          </div>
+        </div>
+
+        <div class="example-row present">
+          <span class="ex-tag present">Presente</span>
+          <div class="ex-text">
+            <span class="ex-en">${v.ejPres}</span>
+            <span class="ex-es">${v.ejPresEs}</span>
+          </div>
+        </div>
+
+        <div class="example-row future">
+          <span class="ex-tag future">Futuro</span>
+          <div class="ex-text">
+            <span class="ex-en">${v.ejFut}</span>
+            <span class="ex-es">${v.ejFutEs}</span>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  });
+
+  // Listeners de checkboxes
+  container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', (e) => {
+      const verbo = decodeURIComponent(e.target.dataset.key);
+      if (e.target.checked) {
+        if (!aprendidos.includes(verbo)) aprendidos.push(verbo);
+      } else {
+        aprendidos = aprendidos.filter(w => w !== verbo);
+      }
+      localStorage.setItem('verbosAprendidos', JSON.stringify(aprendidos));
+      e.target.closest('.verb-card').classList.toggle('learned', e.target.checked);
+      actualizarProgreso();
+    });
+  });
+
+  actualizarProgreso();
+}
+
+function actualizarProgreso() {
+  const total = verbos.length;
+  const hechos = verbos.filter(v => aprendidos.includes(v.base)).length;
+  const pct = total ? (hechos / total) * 100 : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressTxt').textContent =
+    `${hechos} de ${total} verbos aprendidos (${pct.toFixed(1)}%)`;
+}
+
+// ============ FILTROS ============
+document.querySelectorAll('#filters button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filtroActual = btn.dataset.cat;
+    render();
+  });
+});
+
+// ============ BUSCADOR ============
+document.getElementById('searchBox').addEventListener('input', (e) => {
+  busqueda = e.target.value;
+  render();
+});
+
+// ============ INIT ============
+render();
+</script>
+
+</body>
+</html>
