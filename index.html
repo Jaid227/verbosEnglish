@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verbos en Inglés — Guía Completa</title>
+<title>Verbos en Inglés — Guía Completa con Pronunciación</title>
 <style>
   :root {
     --bg: #f5f7fa;
@@ -25,6 +25,7 @@
     --tip-bg: #fff8e1;
     --warn-bg: #fdecea;
     --ok-bg: #eafaf1;
+    --pron-bg: #f0fdf4;
   }
   [data-theme="dark"] {
     --bg: #0f0f17;
@@ -46,6 +47,7 @@
     --tip-bg: #332e1a;
     --warn-bg: #332020;
     --ok-bg: #1a3329;
+    --pron-bg: #1a3329;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,6 +94,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     transition: transform 0.2s, background 0.3s;
+    font-family: inherit;
   }
   .theme-btn:hover { transform: scale(1.05); }
 
@@ -274,26 +277,10 @@
     line-height: 1.55;
     border-left: 4px solid;
   }
-  .info-box {
-    background: var(--info-bg);
-    border-color: var(--accent);
-    color: var(--text);
-  }
-  .tip-box {
-    background: var(--tip-bg);
-    border-color: var(--tip);
-    color: var(--text);
-  }
-  .warn-box {
-    background: var(--warn-bg);
-    border-color: var(--warn);
-    color: var(--text);
-  }
-  .ok-box {
-    background: var(--ok-bg);
-    border-color: var(--ok);
-    color: var(--text);
-  }
+  .info-box { background: var(--info-bg); border-color: var(--accent); color: var(--text); }
+  .tip-box { background: var(--tip-bg); border-color: var(--tip); color: var(--text); }
+  .warn-box { background: var(--warn-bg); border-color: var(--warn); color: var(--text); }
+  .ok-box { background: var(--ok-bg); border-color: var(--ok); color: var(--text); }
   .info-box::before { content: "ℹ️  "; font-weight: 700; }
   .tip-box::before { content: "💡  "; font-weight: 700; }
   .warn-box::before { content: "⚠️  "; font-weight: 700; }
@@ -450,6 +437,14 @@
     flex-direction: column;
     justify-content: center;
     min-width: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px dashed transparent;
+    position: relative;
+  }
+  .verb-slot:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
   }
   .verb-slot .label {
     font-size: 0.65rem;
@@ -463,6 +458,15 @@
     font-weight: 700;
     word-break: break-word;
   }
+  .verb-slot .speaker {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    font-size: 0.75rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .verb-slot:hover .speaker { opacity: 1; }
 
   .verb-past {
     background: rgba(214, 48, 49, 0.08);
@@ -499,6 +503,38 @@
     font-weight: 700;
   }
 
+  /* Pronunciación debajo de cada tiempo */
+  .pron-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+  }
+  .pron-item {
+    flex: 1;
+    text-align: center;
+    padding: 0.3rem 0.4rem;
+    border-radius: 6px;
+    background: var(--pron-bg);
+    border: 1px dashed var(--accent-2, #00b894);
+    color: var(--text-soft);
+    font-family: "Courier New", monospace;
+    word-break: break-word;
+    min-width: 0;
+  }
+  .pron-item .pron-label {
+    display: block;
+    font-size: 0.6rem;
+    color: var(--text-soft);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.1rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .pron-item.past { border-color: var(--past); }
+  .pron-item.present { border-color: var(--present); }
+  .pron-item.future { border-color: var(--future); }
+
   .verb-meaning {
     text-align: center;
     font-size: 0.95rem;
@@ -533,18 +569,9 @@
     font-size: 0.85rem;
     border-left: 3px solid;
   }
-  .example-row.past {
-    background: rgba(214, 48, 49, 0.06);
-    border-color: var(--past);
-  }
-  .example-row.present {
-    background: rgba(108, 92, 231, 0.06);
-    border-color: var(--present);
-  }
-  .example-row.future {
-    background: rgba(0, 184, 148, 0.06);
-    border-color: var(--future);
-  }
+  .example-row.past { background: rgba(214, 48, 49, 0.06); border-color: var(--past); }
+  .example-row.present { background: rgba(108, 92, 231, 0.06); border-color: var(--present); }
+  .example-row.future { background: rgba(0, 184, 148, 0.06); border-color: var(--future); }
 
   .ex-tag {
     flex-shrink: 0;
@@ -564,10 +591,7 @@
   .ex-tag.present { background: var(--present); }
   .ex-tag.future { background: var(--future); }
 
-  .ex-text {
-    flex: 1;
-    min-width: 0;
-  }
+  .ex-text { flex: 1; min-width: 0; }
   .ex-text .ex-en {
     display: block;
     font-style: italic;
@@ -596,6 +620,7 @@
     padding: 0.25rem 0.6rem;
     border-radius: 50px;
     border: 1px solid var(--border);
+    z-index: 2;
   }
   .verb-check label {
     font-size: 0.7rem;
@@ -626,6 +651,23 @@
   .type-modal { background: rgba(108, 92, 231, 0.15); color: var(--present); }
   .type-phrasal { background: rgba(0, 184, 148, 0.15); color: var(--future); }
 
+  /* Notas de pronunciación generales */
+  .pron-notes {
+    background: var(--pron-bg);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    margin-top: 0.5rem;
+    border-left: 3px solid var(--ok);
+    font-size: 0.8rem;
+    color: var(--text-soft);
+  }
+  .pron-notes strong { color: var(--text); }
+  .pron-notes::before {
+    content: "🔤 Pronunciación: ";
+    font-weight: 700;
+    color: var(--ok);
+  }
+
   footer {
     text-align: center;
     padding: 2rem 1rem;
@@ -639,10 +681,7 @@
     font-weight: 600;
     transition: color 0.2s;
   }
-  footer a:hover {
-    color: var(--future);
-    text-decoration: underline;
-  }
+  footer a:hover { color: var(--future); text-decoration: underline; }
 
   .empty {
     text-align: center;
@@ -651,19 +690,33 @@
     font-style: italic;
   }
 
+  /* Toast de notificación */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--accent);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    max-width: 90%;
+    text-align: center;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
   @media (max-width: 640px) {
     header h1 { font-size: 1rem; }
     .intro h2, .guide h2 { font-size: 1.1rem; }
     main { padding: 1rem; }
 
-    .verb-top {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .arrow {
-      transform: rotate(90deg);
-      justify-content: center;
-    }
+    .verb-top { flex-direction: column; gap: 0.5rem; }
+    .arrow { transform: rotate(90deg); justify-content: center; }
     .verb-center .verb-base { font-size: 1.1rem; }
     .verb-slot .value { font-size: 0.95rem; }
 
@@ -673,17 +726,17 @@
       justify-content: flex-end;
     }
 
-    .ex-tag {
-      min-width: 54px;
-      font-size: 0.6rem;
-    }
+    .ex-tag { min-width: 54px; font-size: 0.6rem; }
+
+    .pron-row { flex-direction: column; gap: 0.3rem; }
+    .pron-item { font-size: 0.72rem; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🔤 Verbos en Inglés — Guía Completa</h1>
+  <h1>🔤 Verbos en Inglés — Guía Completa con Pronunciación</h1>
   <button class="theme-btn" id="themeToggle">🌙 Modo Oscuro</button>
 </header>
 
@@ -692,7 +745,7 @@
   <!-- ============ INTRO ============ -->
   <div class="intro">
     <h2>Pasado · Presente · Futuro</h2>
-    <p>Cada tarjeta muestra el verbo en <strong>pasado</strong> (izquierda), su <strong>forma base</strong> (centro) y su <strong>futuro</strong> con <em>will</em> (derecha). Debajo, su significado y <strong>tres ejemplos</strong> (uno por cada tiempo) con su traducción.</p>
+    <p>Cada tarjeta muestra el verbo en <strong>pasado</strong> (izquierda), su <strong>forma base</strong> (centro) y su <strong>futuro</strong> con <em>will</em> (derecha). Debajo de cada forma está su <strong>pronunciación figurada</strong> en español. <strong>Haz clic en cualquier forma verbal para escuchar su audio.</strong></p>
     <div class="legend">
       <span><span class="dot past"></span> Pasado</span>
       <span><span class="dot present"></span> Presente</span>
@@ -707,7 +760,6 @@
     <h2>🎓 Guía: Tipos de Verbos en Inglés</h2>
     <p>Antes de empezar, es fundamental entender <strong>qué tipo de verbo</strong> estás aprendiendo. Cada grupo tiene reglas distintas. Despliega cada bloque para ver la explicación completa con tips.</p>
 
-    <!-- REGULARES -->
     <button class="guide-toggle" data-target="g-regular">
       🔵 ¿Qué son los verbos regulares?
       <span class="arrow-icon">▼</span>
@@ -719,12 +771,21 @@
 
         <h4>📐 Reglas de formación del pasado</h4>
         <table class="guide-table">
-          <tr><th>Regla</th><th>Ejemplo</th><th>Pasado</th></tr>
-          <tr><td>Verbo termina en consonante</td><td>work</td><td>work<strong>ed</strong></td></tr>
-          <tr><td>Verbo termina en <code>-e</code></td><td>live</td><td>liv<strong>ed</strong></td></tr>
-          <tr><td>Verbo termina en <code>-y</code> precedida de consonante</td><td>study</td><td>stud<strong>ied</strong></td></tr>
-          <tr><td>Verbo termina en <code>-y</code> precedida de vocal</td><td>play</td><td>play<strong>ed</strong></td></tr>
-          <tr><td>Verbo corto (1 sílaba) CVC</td><td>stop</td><td>stop<strong>ped</strong> (dobla la consonante)</td></tr>
+          <tr><th>Regla</th><th>Ejemplo</th><th>Pasado</th><th>Pronunciación</th></tr>
+          <tr><td>Verbo termina en consonante</td><td>work</td><td>work<strong>ed</strong></td><td>uórkt</td></tr>
+          <tr><td>Verbo termina en <code>-e</code></td><td>live</td><td>liv<strong>ed</strong></td><td>lívd</td></tr>
+          <tr><td>Termina en consonante + <code>-y</code></td><td>study</td><td>stud<strong>ied</strong></td><td>stádid</td></tr>
+          <tr><td>Termina en vocal + <code>-y</code></td><td>play</td><td>play<strong>ed</strong></td><td>pléid</td></tr>
+          <tr><td>Verbo corto CVC (1 sílaba)</td><td>stop</td><td>stop<strong>ped</strong></td><td>stópt</td></tr>
+        </table>
+
+        <h4>🔤 Reglas de pronunciación del "-ed"</h4>
+        <div class="info-box">La terminación <code>-ed</code> tiene <strong>3 pronunciaciones</strong> distintas según el sonido final del verbo:</div>
+        <table class="guide-table">
+          <tr><th>Suena como</th><th>Cuándo</th><th>Ejemplo</th><th>Pronunciación</th></tr>
+          <tr><td><strong>/t/</strong></td><td>Después de sonido sordo (k, p, s, ch, sh, f)</td><td>worked</td><td>uórkt</td></tr>
+          <tr><td><strong>/d/</strong></td><td>Después de sonido sonoro (b, g, v, z, m, n, l, r, vocal)</td><td>played</td><td>pléid</td></tr>
+          <tr><td><strong>/id/</strong></td><td>Después de T o D</td><td>wanted</td><td>uóntid</td></tr>
         </table>
 
         <h4>💡 Tips importantes</h4>
@@ -739,7 +800,6 @@
       </div>
     </div>
 
-    <!-- IRREGULARES -->
     <button class="guide-toggle" data-target="g-irregular">
       🔴 ¿Qué son los verbos irregulares?
       <span class="arrow-icon">▼</span>
@@ -751,12 +811,12 @@
 
         <h4>📊 Ejemplos comunes</h4>
         <table class="guide-table">
-          <tr><th>Base</th><th>Pasado</th><th>Significado</th></tr>
-          <tr><td>go</td><td>went</td><td>ir</td></tr>
-          <tr><td>eat</td><td>ate</td><td>comer</td></tr>
-          <tr><td>see</td><td>saw</td><td>ver</td></tr>
-          <tr><td>take</td><td>took</td><td>tomar</td></tr>
-          <tr><td>write</td><td>wrote</td><td>escribir</td></tr>
+          <tr><th>Base</th><th>Pasado</th><th>Significado</th><th>Pronunciación pasado</th></tr>
+          <tr><td>go</td><td>went</td><td>ir</td><td>uent</td></tr>
+          <tr><td>eat</td><td>ate</td><td>comer</td><td>éit</td></tr>
+          <tr><td>see</td><td>saw</td><td>ver</td><td>so</td></tr>
+          <tr><td>take</td><td>took</td><td>tomar</td><td>tuk</td></tr>
+          <tr><td>write</td><td>wrote</td><td>escribir</td><td>róut</td></tr>
         </table>
 
         <h4>💡 Tips para memorizarlos</h4>
@@ -774,7 +834,6 @@
       </div>
     </div>
 
-    <!-- MODALES -->
     <button class="guide-toggle" data-target="g-modal">
       🟣 ¿Qué son los verbos modales?
       <span class="arrow-icon">▼</span>
@@ -784,17 +843,17 @@
         <h3>Definición</h3>
         <p>Los <strong>verbos modales</strong> son verbos auxiliares que <strong>no expresan una acción</strong>, sino <strong>una actitud</strong>: posibilidad, obligación, permiso, habilidad o consejo. Siempre van acompañados de otro verbo en forma base.</p>
 
-        <h4>📋 Lista principal de modales</h4>
+        <h4>📋 Lista principal de modales con pronunciación</h4>
         <table class="guide-table">
-          <tr><th>Modal</th><th>Significado</th><th>Ejemplo</th></tr>
-          <tr><td><strong>can</strong></td><td>poder (habilidad)</td><td>I can swim.</td></tr>
-          <tr><td><strong>could</strong></td><td>podía / podría</td><td>I could swim when I was 5.</td></tr>
-          <tr><td><strong>may</strong></td><td>permiso (formal)</td><td>May I come in?</td></tr>
-          <tr><td><strong>might</strong></td><td>posibilidad remota</td><td>It might rain.</td></tr>
-          <tr><td><strong>must</strong></td><td>obligación fuerte</td><td>You must stop.</td></tr>
-          <tr><td><strong>should</strong></td><td>consejo</td><td>You should rest.</td></tr>
-          <tr><td><strong>would</strong></td><td>condicional</td><td>I would go if I could.</td></tr>
-          <tr><td><strong>will</strong></td><td>futuro</td><td>I will call you.</td></tr>
+          <tr><th>Modal</th><th>Significado</th><th>Pronunciación</th><th>Ejemplo</th></tr>
+          <tr><td><strong>can</strong></td><td>poder (habilidad)</td><td>kan</td><td>I can swim.</td></tr>
+          <tr><td><strong>could</strong></td><td>podía / podría</td><td>kud</td><td>I could swim.</td></tr>
+          <tr><td><strong>may</strong></td><td>permiso (formal)</td><td>méi</td><td>May I come in?</td></tr>
+          <tr><td><strong>might</strong></td><td>posibilidad remota</td><td>máit</td><td>It might rain.</td></tr>
+          <tr><td><strong>must</strong></td><td>obligación fuerte</td><td>mast</td><td>You must stop.</td></tr>
+          <tr><td><strong>should</strong></td><td>consejo</td><td>shud</td><td>You should rest.</td></tr>
+          <tr><td><strong>would</strong></td><td>condicional</td><td>uud</td><td>I would go.</td></tr>
+          <tr><td><strong>will</strong></td><td>futuro</td><td>uil</td><td>I will call you.</td></tr>
         </table>
 
         <h4>💡 Tips clave</h4>
@@ -810,7 +869,6 @@
       </div>
     </div>
 
-    <!-- PHRASAL VERBS -->
     <button class="guide-toggle" data-target="g-phrasal">
       🟢 ¿Qué son los Phrasal Verbs?
       <span class="arrow-icon">▼</span>
@@ -820,14 +878,14 @@
         <h3>Definición</h3>
         <p>Los <strong>phrasal verbs</strong> son combinaciones de un <strong>verbo + preposición o adverbio</strong> que juntos crean un <strong>significado nuevo</strong>, distinto al del verbo original. Son muy comunes en el inglés hablado.</p>
 
-        <h4>📊 Ejemplos</h4>
+        <h4>📊 Ejemplos con pronunciación</h4>
         <table class="guide-table">
-          <tr><th>Phrasal Verb</th><th>Significado literal</th><th>Significado real</th></tr>
-          <tr><td><strong>give up</strong></td><td>dar arriba</td><td>rendirse</td></tr>
-          <tr><td><strong>look after</strong></td><td>mirar después</td><td>cuidar</td></tr>
-          <tr><td><strong>put up with</strong></td><td>poner arriba con</td><td>aguantar</td></tr>
-          <tr><td><strong>come up with</strong></td><td>venir arriba con</td><td>idear / ocurrírsele</td></tr>
-          <tr><td><strong>run out of</strong></td><td>correr fuera de</td><td>quedarse sin</td></tr>
+          <tr><th>Phrasal Verb</th><th>Significado</th><th>Pronunciación</th></tr>
+          <tr><td><strong>give up</strong></td><td>rendirse</td><td>guív ap</td></tr>
+          <tr><td><strong>look after</strong></td><td>cuidar</td><td>luk áfter</td></tr>
+          <tr><td><strong>put up with</strong></td><td>aguantar</td><td>put ap uid</td></tr>
+          <tr><td><strong>come up with</strong></td><td>idear</td><td>kam ap uid</td></tr>
+          <tr><td><strong>run out of</strong></td><td>quedarse sin</td><td>ran áut ov</td></tr>
         </table>
 
         <h4>💡 Tips para aprenderlos</h4>
@@ -843,7 +901,6 @@
       </div>
     </div>
 
-    <!-- TIPS GENERALES -->
     <button class="guide-toggle" data-target="g-tips">
       🎯 Tips generales para aprender verbos
       <span class="arrow-icon">▼</span>
@@ -860,6 +917,9 @@
 
         <h4>🗣️ Habla en voz alta</h4>
         <div class="tip-box">Repite cada ejemplo en voz alta. La memoria muscular es clave para hablar con fluidez.</div>
+
+        <h4>🔊 Escucha la pronunciación</h4>
+        <div class="tip-box">Haz clic en cada forma verbal de las tarjetas para escuchar cómo suena. Repite en voz alta inmediatamente después.</div>
 
         <h4>📝 Escribe tus propias frases</h4>
         <p>Después de ver un verbo, escribe <strong>3 oraciones propias</strong>: una en pasado, una en presente y una en futuro. Esto fija el aprendizaje 10 veces más que solo leerlo.</p>
@@ -908,559 +968,672 @@
   </a>
 </footer>
 
+<div class="toast" id="toast"></div>
+
 <script>
 // ============ DATOS: VERBOS ============
+// Cada verbo incluye pronunciación figurada (pr) para pasado, presente y futuro
 const verbos = [
   // ================== REGULARES (30) ==================
   { type:"regular", base:"work", past:"worked", future:"will work", es:"trabajar",
+    prPast:"uórkt", prPres:"uórk", prFut:"uil uórk",
     ejPast:"I worked from home yesterday.", ejPastEs:"Trabajé desde casa ayer.",
     ejPres:"I work from home every day.", ejPresEs:"Trabajo desde casa todos los días.",
     ejFut:"I will work from home tomorrow.", ejFutEs:"Trabajaré desde casa mañana." },
 
   { type:"regular", base:"play", past:"played", future:"will play", es:"jugar / tocar",
+    prPast:"pléid", prPres:"pléi", prFut:"uil pléi",
     ejPast:"She played the piano last night.", ejPastEs:"Ella tocó el piano anoche.",
     ejPres:"She plays the piano every evening.", ejPresEs:"Ella toca el piano cada tarde.",
     ejFut:"She will play the piano at the concert.", ejFutEs:"Ella tocará el piano en el concierto." },
 
   { type:"regular", base:"study", past:"studied", future:"will study", es:"estudiar",
+    prPast:"stádid", prPres:"stádi", prFut:"uil stádi",
     ejPast:"We studied all night for the exam.", ejPastEs:"Estudiamos toda la noche para el examen.",
     ejPres:"We study English every Monday.", ejPresEs:"Estudiamos inglés todos los lunes.",
     ejFut:"We will study for the final next week.", ejFutEs:"Estudiaremos para el final la próxima semana." },
 
   { type:"regular", base:"watch", past:"watched", future:"will watch", es:"mirar / ver",
+    prPast:"uácht", prPres:"uách", prFut:"uil uách",
     ejPast:"They watched a movie last night.", ejPastEs:"Ellos vieron una película anoche.",
     ejPres:"They watch the news every morning.", ejPresEs:"Ellos ven las noticias cada mañana.",
     ejFut:"They will watch the game tonight.", ejFutEs:"Ellos verán el partido esta noche." },
 
   { type:"regular", base:"walk", past:"walked", future:"will walk", es:"caminar",
+    prPast:"uókt", prPres:"uók", prFut:"uil uók",
     ejPast:"He walked to the park this morning.", ejPastEs:"Él caminó al parque esta mañana.",
     ejPres:"He walks to work every day.", ejPresEs:"Él camina al trabajo todos los días.",
     ejFut:"He will walk with us tomorrow.", ejFutEs:"Él caminará con nosotros mañana." },
 
   { type:"regular", base:"talk", past:"talked", future:"will talk", es:"hablar",
+    prPast:"tókt", prPres:"tók", prFut:"uil tók",
     ejPast:"We talked for hours on the phone.", ejPastEs:"Hablamos durante horas por teléfono.",
     ejPres:"We talk every Sunday.", ejPresEs:"Hablamos cada domingo.",
     ejFut:"We will talk about it tomorrow.", ejFutEs:"Hablaremos de eso mañana." },
 
   { type:"regular", base:"listen", past:"listened", future:"will listen", es:"escuchar",
+    prPast:"lísend", prPres:"lísen", prFut:"uil lísen",
     ejPast:"I listened to your advice.", ejPastEs:"Escuché tu consejo.",
     ejPres:"I listen to music while I work.", ejPresEs:"Escucho música mientras trabajo.",
     ejFut:"I will listen carefully next time.", ejFutEs:"Escucharé con atención la próxima vez." },
 
   { type:"regular", base:"clean", past:"cleaned", future:"will clean", es:"limpiar",
+    prPast:"clíind", prPres:"clíin", prFut:"uil clíin",
     ejPast:"She cleaned the whole house.", ejPastEs:"Ella limpió toda la casa.",
     ejPres:"She cleans her room on Saturdays.", ejPresEs:"Ella limpia su cuarto los sábados.",
     ejFut:"She will clean the kitchen later.", ejFutEs:"Ella limpiará la cocina más tarde." },
 
   { type:"regular", base:"cook", past:"cooked", future:"will cook", es:"cocinar",
+    prPast:"kukt", prPres:"kuk", prFut:"uil kuk",
     ejPast:"My dad cooked dinner last night.", ejPastEs:"Mi papá cocinó la cena anoche.",
     ejPres:"My dad cooks on weekends.", ejPresEs:"Mi papá cocina los fines de semana.",
     ejFut:"My dad will cook for the party.", ejFutEs:"Mi papá cocinará para la fiesta." },
 
   { type:"regular", base:"open", past:"opened", future:"will open", es:"abrir",
+    prPast:"óupend", prPres:"óupen", prFut:"uil óupen",
     ejPast:"He opened the door quietly.", ejPastEs:"Él abrió la puerta silenciosamente.",
     ejPres:"He opens the store at 8 AM.", ejPresEs:"Él abre la tienda a las 8 AM.",
     ejFut:"He will open the new branch soon.", ejFutEs:"Él abrirá la nueva sucursal pronto." },
 
   { type:"regular", base:"close", past:"closed", future:"will close", es:"cerrar",
+    prPast:"clóusd", prPres:"clóus", prFut:"uil clóus",
     ejPast:"The store closed at 9 PM.", ejPastEs:"La tienda cerró a las 9 PM.",
     ejPres:"The store closes at 9 PM every day.", ejPresEs:"La tienda cierra a las 9 PM todos los días.",
     ejFut:"The store will close early tomorrow.", ejFutEs:"La tienda cerrará temprano mañana." },
 
   { type:"regular", base:"help", past:"helped", future:"will help", es:"ayudar",
+    prPast:"jelpt", prPres:"jelp", prFut:"uil jelp",
     ejPast:"She helped me with my homework.", ejPastEs:"Ella me ayudó con mi tarea.",
     ejPres:"She helps her mom every day.", ejPresEs:"Ella ayuda a su mamá todos los días.",
     ejFut:"She will help us move next week.", ejFutEs:"Ella nos ayudará a mudarnos la próxima semana." },
 
   { type:"regular", base:"call", past:"called", future:"will call", es:"llamar",
+    prPast:"kold", prPres:"kol", prFut:"uil kol",
     ejPast:"I called you three times.", ejPastEs:"Te llamé tres veces.",
     ejPres:"I call my mom every Sunday.", ejPresEs:"Llamo a mi mamá cada domingo.",
     ejFut:"I will call you when I arrive.", ejFutEs:"Te llamaré cuando llegue." },
 
   { type:"regular", base:"wait", past:"waited", future:"will wait", es:"esperar",
+    prPast:"uéitid", prPres:"uéit", prFut:"uil uéit",
     ejPast:"We waited for the bus for an hour.", ejPastEs:"Esperamos el autobús por una hora.",
     ejPres:"We wait here every morning.", ejPresEs:"Esperamos aquí cada mañana.",
     ejFut:"We will wait until you come.", ejFutEs:"Esperaremos hasta que vengas." },
 
   { type:"regular", base:"ask", past:"asked", future:"will ask", es:"preguntar / pedir",
+    prPast:"askt", prPres:"ask", prFut:"uil ask",
     ejPast:"He asked a very good question.", ejPastEs:"Él hizo una muy buena pregunta.",
     ejPres:"He always asks for help.", ejPresEs:"Él siempre pide ayuda.",
     ejFut:"He will ask his boss tomorrow.", ejFutEs:"Él le preguntará a su jefe mañana." },
 
   { type:"regular", base:"answer", past:"answered", future:"will answer", es:"responder",
+    prPast:"ánserd", prPres:"ánser", prFut:"uil ánser",
     ejPast:"She answered the phone immediately.", ejPastEs:"Ella respondió el teléfono de inmediato.",
     ejPres:"She answers every email.", ejPresEs:"Ella responde cada correo.",
     ejFut:"She will answer your question soon.", ejFutEs:"Ella responderá tu pregunta pronto." },
 
   { type:"regular", base:"finish", past:"finished", future:"will finish", es:"terminar",
+    prPast:"fínisht", prPres:"fínish", prFut:"uil fínish",
     ejPast:"I finished the project on time.", ejPastEs:"Terminé el proyecto a tiempo.",
     ejPres:"I finish work at 6 PM.", ejPresEs:"Termino el trabajo a las 6 PM.",
     ejFut:"I will finish it by Friday.", ejFutEs:"Lo terminaré para el viernes." },
 
   { type:"regular", base:"start", past:"started", future:"will start", es:"empezar",
+    prPast:"stártid", prPres:"stárt", prFut:"uil stárt",
     ejPast:"The class started at 8 AM.", ejPastEs:"La clase empezó a las 8 AM.",
     ejPres:"The class starts at 8 AM.", ejPresEs:"La clase empieza a las 8 AM.",
     ejFut:"The class will start next Monday.", ejFutEs:"La clase empezará el próximo lunes." },
 
   { type:"regular", base:"change", past:"changed", future:"will change", es:"cambiar",
+    prPast:"chéinyid", prPres:"chéiny", prFut:"uil chéiny",
     ejPast:"He changed his mind about the trip.", ejPastEs:"Él cambió de opinión sobre el viaje.",
     ejPres:"He changes jobs often.", ejPresEs:"Él cambia de trabajo con frecuencia.",
     ejFut:"He will change his routine next year.", ejFutEs:"Él cambiará su rutina el próximo año." },
 
   { type:"regular", base:"travel", past:"traveled", future:"will travel", es:"viajar",
+    prPast:"trávld", prPres:"trávl", prFut:"uil trávl",
     ejPast:"They traveled to Japan last summer.", ejPastEs:"Ellos viajaron a Japón el verano pasado.",
     ejPres:"They travel to Europe every year.", ejPresEs:"Ellos viajan a Europa cada año.",
     ejFut:"They will travel to Canada in December.", ejFutEs:"Ellos viajarán a Canadá en diciembre." },
 
   { type:"regular", base:"visit", past:"visited", future:"will visit", es:"visitar",
+    prPast:"vísitid", prPres:"vísit", prFut:"uil vísit",
     ejPast:"We visited the museum yesterday.", ejPastEs:"Visitamos el museo ayer.",
     ejPres:"We visit grandma every weekend.", ejPresEs:"Visitamos a la abuela cada fin de semana.",
     ejFut:"We will visit you next month.", ejFutEs:"Te visitaremos el próximo mes." },
 
   { type:"regular", base:"dance", past:"danced", future:"will dance", es:"bailar",
+    prPast:"dánst", prPres:"dáns", prFut:"uil dáns",
     ejPast:"She danced all night at the party.", ejPastEs:"Ella bailó toda la noche en la fiesta.",
     ejPres:"She dances every Friday.", ejPresEs:"Ella baila cada viernes.",
     ejFut:"She will dance at the wedding.", ejFutEs:"Ella bailará en la boda." },
 
   { type:"regular", base:"laugh", past:"laughed", future:"will laugh", es:"reír",
+    prPast:"laft", prPres:"laf", prFut:"uil laf",
     ejPast:"Everyone laughed at the joke.", ejPastEs:"Todos se rieron del chiste.",
     ejPres:"He laughs at everything.", ejPresEs:"Él se ríe de todo.",
     ejFut:"We will laugh about this someday.", ejFutEs:"Nos reiremos de esto algún día." },
 
   { type:"regular", base:"cry", past:"cried", future:"will cry", es:"llorar",
+    prPast:"cráid", prPres:"crái", prFut:"uil crái",
     ejPast:"The baby cried all night.", ejPastEs:"El bebé lloró toda la noche.",
     ejPres:"The baby cries when he's hungry.", ejPresEs:"El bebé llora cuando tiene hambre.",
     ejFut:"She will cry at the movie.", ejFutEs:"Ella llorará con la película." },
 
   { type:"regular", base:"arrive", past:"arrived", future:"will arrive", es:"llegar",
+    prPast:"arráivd", prPres:"arráiv", prFut:"uil arráiv",
     ejPast:"They arrived late to the meeting.", ejPastEs:"Ellos llegaron tarde a la reunión.",
     ejPres:"They arrive at 9 AM every day.", ejPresEs:"Ellos llegan a las 9 AM todos los días.",
     ejFut:"They will arrive tomorrow morning.", ejFutEs:"Ellos llegarán mañana por la mañana." },
 
   { type:"regular", base:"learn", past:"learned", future:"will learn", es:"aprender",
+    prPast:"lernd", prPres:"lern", prFut:"uil lern",
     ejPast:"I learned English in high school.", ejPastEs:"Aprendí inglés en la preparatoria.",
     ejPres:"I learn something new every day.", ejPresEs:"Aprendo algo nuevo cada día.",
     ejFut:"I will learn French next year.", ejFutEs:"Aprenderé francés el próximo año." },
 
   { type:"regular", base:"want", past:"wanted", future:"will want", es:"querer",
+    prPast:"uóntid", prPres:"uónt", prFut:"uil uónt",
     ejPast:"She wanted a new phone.", ejPastEs:"Ella quería un teléfono nuevo.",
     ejPres:"She wants to travel the world.", ejPresEs:"Ella quiere viajar por el mundo.",
     ejFut:"She will want to come with us.", ejFutEs:"Ella querrá venir con nosotros." },
 
   { type:"regular", base:"need", past:"needed", future:"will need", es:"necesitar",
+    prPast:"níidid", prPres:"níid", prFut:"uil níid",
     ejPast:"We needed more time.", ejPastEs:"Necesitábamos más tiempo.",
     ejPres:"We need your help now.", ejPresEs:"Necesitamos tu ayuda ahora.",
     ejFut:"We will need more supplies.", ejFutEs:"Necesitaremos más suministros." },
 
   { type:"regular", base:"love", past:"loved", future:"will love", es:"amar / encantar",
+    prPast:"lavd", prPres:"lav", prFut:"uil lav",
     ejPast:"I loved that movie.", ejPastEs:"Me encantó esa película.",
     ejPres:"I love chocolate.", ejPresEs:"Me encanta el chocolate.",
     ejFut:"You will love this place.", ejFutEs:"Te encantará este lugar." },
 
   { type:"regular", base:"like", past:"liked", future:"will like", es:"gustar",
+    prPast:"láikt", prPres:"láik", prFut:"uil láik",
     ejPast:"He liked the gift a lot.", ejPastEs:"Le gustó mucho el regalo.",
     ejPres:"He likes spicy food.", ejPresEs:"Le gusta la comida picante.",
     ejFut:"He will like your idea.", ejFutEs:"Le gustará tu idea." },
 
   // ================== IRREGULARES (30) ==================
   { type:"irregular", base:"be", past:"was / were", future:"will be", es:"ser / estar",
+    prPast:"uós / uér", prPres:"am / is / ar", prFut:"uil bi",
     ejPast:"I was at home yesterday.", ejPastEs:"Estuve en casa ayer.",
     ejPres:"I am at home right now.", ejPresEs:"Estoy en casa ahora mismo.",
     ejFut:"I will be at home tomorrow.", ejFutEs:"Estaré en casa mañana." },
 
   { type:"irregular", base:"go", past:"went", future:"will go", es:"ir",
+    prPast:"uent", prPres:"góu", prFut:"uil góu",
     ejPast:"We went to the beach last weekend.", ejPastEs:"Fuimos a la playa el fin de semana pasado.",
     ejPres:"We go to the gym every day.", ejPresEs:"Vamos al gimnasio todos los días.",
     ejFut:"We will go to the concert next month.", ejFutEs:"Iremos al concierto el próximo mes." },
 
   { type:"irregular", base:"have", past:"had", future:"will have", es:"tener",
+    prPast:"jad", prPres:"jav / jas", prFut:"uil jav",
     ejPast:"She had a great idea.", ejPastEs:"Ella tuvo una gran idea.",
     ejPres:"She has two brothers.", ejPresEs:"Ella tiene dos hermanos.",
     ejFut:"She will have a baby in May.", ejFutEs:"Ella tendrá un bebé en mayo." },
 
   { type:"irregular", base:"do", past:"did", future:"will do", es:"hacer",
+    prPast:"did", prPres:"du", prFut:"uil du",
     ejPast:"I did my best.", ejPastEs:"Hice lo mejor que pude.",
     ejPres:"I do my homework every night.", ejPresEs:"Hago mi tarea cada noche.",
     ejFut:"I will do it right now.", ejFutEs:"Lo haré ahora mismo." },
 
   { type:"irregular", base:"say", past:"said", future:"will say", es:"decir",
+    prPast:"sed", prPres:"séi", prFut:"uil séi",
     ejPast:"He said he would come.", ejPastEs:"Él dijo que vendría.",
     ejPres:"He says hello to everyone.", ejPresEs:"Él saluda a todos.",
     ejFut:"He will say yes, I'm sure.", ejFutEs:"Él dirá que sí, estoy seguro." },
 
   { type:"irregular", base:"see", past:"saw", future:"will see", es:"ver",
+    prPast:"so", prPres:"síi", prFut:"uil síi",
     ejPast:"I saw a shooting star.", ejPastEs:"Vi una estrella fugaz.",
     ejPres:"I see my friends every weekend.", ejPresEs:"Veo a mis amigos cada fin de semana.",
     ejFut:"I will see you tomorrow.", ejFutEs:"Te veré mañana." },
 
   { type:"irregular", base:"eat", past:"ate", future:"will eat", es:"comer",
+    prPast:"éit", prPres:"íit", prFut:"uil íit",
     ejPast:"We ate at a fancy restaurant.", ejPastEs:"Comimos en un restaurante elegante.",
     ejPres:"We eat dinner at 8 PM.", ejPresEs:"Cenamos a las 8 PM.",
     ejFut:"We will eat at grandma's on Sunday.", ejFutEs:"Comeremos en casa de la abuela el domingo." },
 
   { type:"irregular", base:"drink", past:"drank", future:"will drink", es:"beber",
+    prPast:"drank", prPres:"drink", prFut:"uil drink",
     ejPast:"She drank all the water.", ejPastEs:"Ella se bebió toda el agua.",
     ejPres:"She drinks coffee every morning.", ejPresEs:"Ella toma café cada mañana.",
     ejFut:"She will drink tea tonight.", ejFutEs:"Ella tomará té esta noche." },
 
   { type:"irregular", base:"come", past:"came", future:"will come", es:"venir",
+    prPast:"kéim", prPres:"kam", prFut:"uil kam",
     ejPast:"They came to the party late.", ejPastEs:"Ellos llegaron tarde a la fiesta.",
     ejPres:"They come here every summer.", ejPresEs:"Ellos vienen aquí cada verano.",
     ejFut:"They will come to visit us soon.", ejFutEs:"Ellos vendrán a visitarnos pronto." },
 
   { type:"irregular", base:"take", past:"took", future:"will take", es:"tomar / llevar",
+    prPast:"tuk", prPres:"téik", prFut:"uil téik",
     ejPast:"He took the bus this morning.", ejPastEs:"Él tomó el autobús esta mañana.",
     ejPres:"He takes the bus every day.", ejPresEs:"Él toma el autobús todos los días.",
     ejFut:"He will take a taxi tonight.", ejFutEs:"Él tomará un taxi esta noche." },
 
   { type:"irregular", base:"give", past:"gave", future:"will give", es:"dar",
+    prPast:"guéiv", prPres:"guív", prFut:"uil guív",
     ejPast:"I gave her a book.", ejPastEs:"Le di un libro.",
     ejPres:"I give to charity every month.", ejPresEs:"Doy a la caridad cada mes.",
     ejFut:"I will give you the money tomorrow.", ejFutEs:"Te daré el dinero mañana." },
 
   { type:"irregular", base:"make", past:"made", future:"will make", es:"hacer / fabricar",
+    prPast:"méid", prPres:"méik", prFut:"uil méik",
     ejPast:"She made a delicious cake.", ejPastEs:"Ella hizo un pastel delicioso.",
     ejPres:"She makes breakfast every day.", ejPresEs:"Ella prepara el desayuno todos los días.",
     ejFut:"She will make dinner for us.", ejFutEs:"Ella nos preparará la cena." },
 
   { type:"irregular", base:"know", past:"knew", future:"will know", es:"saber / conocer",
+    prPast:"niú", prPres:"nóu", prFut:"uil nóu",
     ejPast:"I knew the answer.", ejPastEs:"Sabía la respuesta.",
     ejPres:"I know her very well.", ejPresEs:"La conozco muy bien.",
     ejFut:"I will know the results tomorrow.", ejFutEs:"Sabré los resultados mañana." },
 
   { type:"irregular", base:"think", past:"thought", future:"will think", es:"pensar",
+    prPast:"zot", prPres:"zink", prFut:"uil zink",
     ejPast:"He thought about it all day.", ejPastEs:"Él pensó en eso todo el día.",
     ejPres:"He thinks it's a good idea.", ejPresEs:"Él piensa que es una buena idea.",
     ejFut:"He will think about your offer.", ejFutEs:"Él pensará en tu oferta." },
 
   { type:"irregular", base:"get", past:"got", future:"will get", es:"obtener / conseguir",
+    prPast:"got", prPres:"guet", prFut:"uil guet",
     ejPast:"I got a new job.", ejPastEs:"Conseguí un nuevo trabajo.",
     ejPres:"I get paid every Friday.", ejPresEs:"Me pagan cada viernes.",
     ejFut:"I will get my results next week.", ejFutEs:"Obtendré mis resultados la próxima semana." },
 
   { type:"irregular", base:"write", past:"wrote", future:"will write", es:"escribir",
+    prPast:"róut", prPres:"ráit", prFut:"uil ráit",
     ejPast:"She wrote a beautiful poem.", ejPastEs:"Ella escribió un hermoso poema.",
     ejPres:"She writes in her diary every night.", ejPresEs:"Ella escribe en su diario cada noche.",
     ejFut:"She will write a novel someday.", ejFutEs:"Ella escribirá una novela algún día." },
 
   { type:"irregular", base:"read", past:"read", future:"will read", es:"leer",
+    prPast:"red", prPres:"ríid", prFut:"uil ríid",
     ejPast:"I read that book last month.", ejPastEs:"Leí ese libro el mes pasado.",
     ejPres:"I read before going to bed.", ejPresEs:"Leo antes de irme a la cama.",
     ejFut:"I will read the new book tomorrow.", ejFutEs:"Leeré el nuevo libro mañana." },
 
   { type:"irregular", base:"run", past:"ran", future:"will run", es:"correr",
+    prPast:"ran", prPres:"ran", prFut:"uil ran",
     ejPast:"He ran five kilometers today.", ejPastEs:"Él corrió cinco kilómetros hoy.",
     ejPres:"He runs in the park every morning.", ejPresEs:"Él corre en el parque cada mañana.",
     ejFut:"He will run a marathon next year.", ejFutEs:"Él correrá un maratón el próximo año." },
 
   { type:"irregular", base:"sleep", past:"slept", future:"will sleep", es:"dormir",
+    prPast:"slept", prPres:"slíip", prFut:"uil slíip",
     ejPast:"I slept only four hours.", ejPastEs:"Solo dormí cuatro horas.",
     ejPres:"I sleep eight hours every night.", ejPresEs:"Duermo ocho horas cada noche.",
     ejFut:"I will sleep late tomorrow.", ejFutEs:"Dormiré hasta tarde mañana." },
 
   { type:"irregular", base:"speak", past:"spoke", future:"will speak", es:"hablar",
+    prPast:"spóuk", prPres:"spíik", prFut:"uil spíik",
     ejPast:"She spoke to me in English.", ejPastEs:"Ella me habló en inglés.",
     ejPres:"She speaks three languages.", ejPresEs:"Ella habla tres idiomas.",
     ejFut:"She will speak at the conference.", ejFutEs:"Ella hablará en la conferencia." },
 
   { type:"irregular", base:"buy", past:"bought", future:"will buy", es:"comprar",
+    prPast:"bot", prPres:"bái", prFut:"uil bái",
     ejPast:"We bought a new car.", ejPastEs:"Compramos un coche nuevo.",
     ejPres:"We buy fresh bread daily.", ejPresEs:"Compramos pan fresco a diario.",
     ejFut:"We will buy a house next year.", ejFutEs:"Compraremos una casa el próximo año." },
 
   { type:"irregular", base:"bring", past:"brought", future:"will bring", es:"traer",
+    prPast:"brot", prPres:"bring", prFut:"uil bring",
     ejPast:"He brought snacks to the party.", ejPastEs:"Él trajo botanas a la fiesta.",
     ejPres:"He brings his lunch to work.", ejPresEs:"Él trae su almuerzo al trabajo.",
     ejFut:"He will bring the documents tomorrow.", ejFutEs:"Él traerá los documentos mañana." },
 
   { type:"irregular", base:"teach", past:"taught", future:"will teach", es:"enseñar",
+    prPast:"tot", prPres:"tíich", prFut:"uil tíich",
     ejPast:"My mom taught me to cook.", ejPastEs:"Mi mamá me enseñó a cocinar.",
     ejPres:"She teaches math at school.", ejPresEs:"Ella enseña matemáticas en la escuela.",
     ejFut:"She will teach online next semester.", ejFutEs:"Ella enseñará en línea el próximo semestre." },
 
   { type:"irregular", base:"leave", past:"left", future:"will leave", es:"irse / dejar",
+    prPast:"left", prPres:"líiv", prFut:"uil líiv",
     ejPast:"They left early this morning.", ejPastEs:"Ellos se fueron temprano esta mañana.",
     ejPres:"They leave work at 6 PM.", ejPresEs:"Ellos salen del trabajo a las 6 PM.",
     ejFut:"They will leave for vacation on Friday.", ejFutEs:"Ellos saldrán de vacaciones el viernes." },
 
   { type:"irregular", base:"feel", past:"felt", future:"will feel", es:"sentir",
+    prPast:"felt", prPres:"fíil", prFut:"uil fíil",
     ejPast:"I felt happy yesterday.", ejPastEs:"Me sentí feliz ayer.",
     ejPres:"I feel great today.", ejPresEs:"Me siento genial hoy.",
     ejFut:"I will feel better tomorrow.", ejFutEs:"Me sentiré mejor mañana." },
 
   { type:"irregular", base:"find", past:"found", future:"will find", es:"encontrar",
+    prPast:"fáund", prPres:"fáind", prFut:"uil fáind",
     ejPast:"She found her keys under the sofa.", ejPastEs:"Ella encontró sus llaves bajo el sofá.",
     ejPres:"She finds new ideas every day.", ejPresEs:"Ella encuentra nuevas ideas cada día.",
     ejFut:"She will find a solution soon.", ejFutEs:"Ella encontrará una solución pronto." },
 
   { type:"irregular", base:"lose", past:"lost", future:"will lose", es:"perder",
+    prPast:"lost", prPres:"lúus", prFut:"uil lúus",
     ejPast:"He lost his wallet at the park.", ejPastEs:"Él perdió su cartera en el parque.",
     ejPres:"He loses his keys often.", ejPresEs:"Él pierde sus llaves con frecuencia.",
     ejFut:"He will lose the game if he doesn't focus.", ejFutEs:"Él perderá el juego si no se concentra." },
 
   { type:"irregular", base:"win", past:"won", future:"will win", es:"ganar",
+    prPast:"uon", prPres:"uin", prFut:"uil uin",
     ejPast:"Our team won the championship.", ejPastEs:"Nuestro equipo ganó el campeonato.",
     ejPres:"Our team wins most games.", ejPresEs:"Nuestro equipo gana la mayoría de los partidos.",
     ejFut:"Our team will win the final.", ejFutEs:"Nuestro equipo ganará la final." },
 
   { type:"irregular", base:"break", past:"broke", future:"will break", es:"romper",
+    prPast:"bróuk", prPres:"bréik", prFut:"uil bréik",
     ejPast:"I broke my phone yesterday.", ejPastEs:"Rompí mi teléfono ayer.",
     ejPres:"He breaks a glass every week.", ejPresEs:"Él rompe un vaso cada semana.",
     ejFut:"She will break the record next year.", ejFutEs:"Ella romperá el récord el próximo año." },
 
   { type:"irregular", base:"meet", past:"met", future:"will meet", es:"conocer / reunirse",
+    prPast:"met", prPres:"míit", prFut:"uil míit",
     ejPast:"I met her at a wedding.", ejPastEs:"La conocí en una boda.",
     ejPres:"We meet every Monday.", ejPresEs:"Nos reunimos cada lunes.",
     ejFut:"We will meet at the café tomorrow.", ejFutEs:"Nos reuniremos en el café mañana." },
 
   // ================== MODALES (15) ==================
   { type:"modal", base:"can", past:"could", future:"will be able to", es:"poder (habilidad)",
+    prPast:"kud", prPres:"kan", prFut:"uil bi éibol tu",
     ejPast:"I could swim when I was five.", ejPastEs:"Podía nadar cuando tenía cinco años.",
     ejPres:"I can swim very well.", ejPresEs:"Puedo nadar muy bien.",
     ejFut:"I will be able to swim in the race.", ejFutEs:"Podré nadar en la carrera." },
 
   { type:"modal", base:"may", past:"might", future:"will possibly", es:"poder (permiso)",
+    prPast:"máit", prPres:"méi", prFut:"uil pósibli",
     ejPast:"He might have been at home.", ejPastEs:"Él pudo haber estado en casa.",
     ejPres:"May I come in?", ejPresEs:"¿Puedo pasar?",
     ejFut:"I will possibly visit you next week.", ejFutEs:"Posiblemente te visite la próxima semana." },
 
   { type:"modal", base:"must", past:"had to", future:"will have to", es:"deber (obligación)",
+    prPast:"jad tu", prPres:"mast", prFut:"uil jav tu",
     ejPast:"I had to work late yesterday.", ejPastEs:"Tuve que trabajar hasta tarde ayer.",
     ejPres:"You must wear a seatbelt.", ejPresEs:"Debes usar cinturón de seguridad.",
     ejFut:"I will have to study for the exam.", ejFutEs:"Tendré que estudiar para el examen." },
 
   { type:"modal", base:"should", past:"should have", future:"will should", es:"debería (consejo)",
+    prPast:"shud jav", prPres:"shud", prFut:"uil shud",
     ejPast:"You should have called me.", ejPastEs:"Debiste haberme llamado.",
     ejPres:"You should see a doctor.", ejPresEs:"Deberías ver a un doctor.",
     ejFut:"You will should rest tomorrow. (poco usado)", ejFutEs:"Deberías descansar mañana. (poco usado)" },
 
   { type:"modal", base:"will", past:"would", future:"—", es:"(futuro / voluntad)",
+    prPast:"uud", prPres:"uil", prFut:"—",
     ejPast:"He said he would help.", ejPastEs:"Él dijo que ayudaría.",
     ejPres:"I will help you now.", ejPresEs:"Te ayudaré ahora.",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"would", past:"would have", future:"—", es:"(condicional)",
+    prPast:"uud jav", prPres:"uud", prFut:"—",
     ejPast:"I would have gone if invited.", ejPastEs:"Habría ido si me hubieran invitado.",
     ejPres:"I would travel if I had money.", ejPresEs:"Viajaría si tuviera dinero.",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"shall", past:"should", future:"—", es:"(futuro formal)",
+    prPast:"shud", prPres:"shal", prFut:"—",
     ejPast:"I should have arrived earlier.", ejPastEs:"Debí haber llegado más temprano.",
     ejPres:"Shall we dance?", ejPresEs:"¿Bailamos?",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"might", past:"might have", future:"—", es:"podría (posibilidad)",
+    prPast:"máit jav", prPres:"máit", prFut:"—",
     ejPast:"She might have missed the bus.", ejPastEs:"Ella pudo haber perdido el autobús.",
     ejPres:"It might rain later.", ejPresEs:"Podría llover más tarde.",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"could", past:"could have", future:"—", es:"podría / podía",
+    prPast:"kud jav", prPres:"kud", prFut:"—",
     ejPast:"I could have helped you.", ejPastEs:"Pude haberte ayudado.",
     ejPres:"Could you help me, please?", ejPresEs:"¿Podrías ayudarme, por favor?",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"have to", past:"had to", future:"will have to", es:"tener que",
+    prPast:"jad tu", prPres:"jav tu", prFut:"uil jav tu",
     ejPast:"I had to leave early.", ejPastEs:"Tuve que irme temprano.",
     ejPres:"I have to study tonight.", ejPresEs:"Tengo que estudiar esta noche.",
     ejFut:"I will have to wake up early.", ejFutEs:"Tendré que despertarme temprano." },
 
   { type:"modal", base:"need to", past:"needed to", future:"will need to", es:"necesitar hacer",
+    prPast:"níidid tu", prPres:"níid tu", prFut:"uil níid tu",
     ejPast:"I needed to talk to you.", ejPastEs:"Necesitaba hablar contigo.",
     ejPres:"You need to rest.", ejPresEs:"Necesitas descansar.",
     ejFut:"I will need to buy a new laptop.", ejFutEs:"Necesitaré comprar una laptop nueva." },
 
   { type:"modal", base:"ought to", past:"ought to have", future:"—", es:"debería (moral)",
+    prPast:"ot tu jav", prPres:"ot tu", prFut:"—",
     ejPast:"You ought to have apologized.", ejPastEs:"Debiste haberte disculpado.",
     ejPres:"You ought to apologize.", ejPresEs:"Deberías disculparte.",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"used to", past:"used to", future:"—", es:"solía (hábito pasado)",
+    prPast:"iúst tu", prPres:"iúst tu", prFut:"—",
     ejPast:"I used to play soccer as a kid.", ejPastEs:"Solía jugar fútbol de niño.",
     ejPres:"I don't play soccer anymore. (no presente directo)", ejPresEs:"Ya no juego fútbol. (sin presente directo)",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"had better", past:"—", future:"—", es:"más vale que",
+    prPast:"—", prPres:"jad béter", prFut:"—",
     ejPast:"—", ejPastEs:"—",
     ejPres:"You had better leave now.", ejPresEs:"Más vale que te vayas ahora.",
     ejFut:"—", ejFutEs:"—" },
 
   { type:"modal", base:"be able to", past:"was able to", future:"will be able to", es:"ser capaz de",
+    prPast:"uós éibol tu", prPres:"bi éibol tu", prFut:"uil bi éibol tu",
     ejPast:"She was able to finish on time.", ejPastEs:"Ella pudo terminar a tiempo.",
     ejPres:"She is able to solve any problem.", ejPresEs:"Ella es capaz de resolver cualquier problema.",
     ejFut:"She will be able to help us tomorrow.", ejFutEs:"Ella podrá ayudarnos mañana." },
 
   // ================== PHRASAL VERBS (35) ==================
   { type:"phrasal", base:"get up", past:"got up", future:"will get up", es:"levantarse",
+    prPast:"got ap", prPres:"guet ap", prFut:"uil guet ap",
     ejPast:"I got up at 6 AM today.", ejPastEs:"Me levanté a las 6 AM hoy.",
     ejPres:"I get up at 6 AM every day.", ejPresEs:"Me levanto a las 6 AM todos los días.",
     ejFut:"I will get up early tomorrow.", ejFutEs:"Me levantaré temprano mañana." },
 
   { type:"phrasal", base:"wake up", past:"woke up", future:"will wake up", es:"despertar(se)",
+    prPast:"uóuk ap", prPres:"uéik ap", prFut:"uil uéik ap",
     ejPast:"She woke up late yesterday.", ejPastEs:"Ella se despertó tarde ayer.",
     ejPres:"She wakes up at 7 AM.", ejPresEs:"Ella se despierta a las 7 AM.",
     ejFut:"She will wake up early on Monday.", ejFutEs:"Ella se despertará temprano el lunes." },
 
   { type:"phrasal", base:"turn on", past:"turned on", future:"will turn on", es:"encender",
+    prPast:"ternd on", prPres:"tern on", prFut:"uil tern on",
     ejPast:"He turned on the TV.", ejPastEs:"Él encendió la televisión.",
     ejPres:"He turns on the radio every morning.", ejPresEs:"Él enciende la radio cada mañana.",
     ejFut:"He will turn on the lights soon.", ejFutEs:"Él encenderá las luces pronto." },
 
   { type:"phrasal", base:"turn off", past:"turned off", future:"will turn off", es:"apagar",
+    prPast:"ternd of", prPres:"tern of", prFut:"uil tern of",
     ejPast:"She turned off the lights.", ejPastEs:"Ella apagó las luces.",
     ejPres:"She turns off her phone at night.", ejPresEs:"Ella apaga su teléfono por la noche.",
     ejFut:"She will turn off the computer later.", ejFutEs:"Ella apagará la computadora más tarde." },
 
   { type:"phrasal", base:"look for", past:"looked for", future:"will look for", es:"buscar",
+    prPast:"lukt for", prPres:"luk for", prFut:"uil luk for",
     ejPast:"I looked for my keys everywhere.", ejPastEs:"Busqué mis llaves por todas partes.",
     ejPres:"I'm looking for a new job.", ejPresEs:"Estoy buscando un nuevo trabajo.",
     ejFut:"I will look for it tomorrow.", ejFutEs:"Lo buscaré mañana." },
 
   { type:"phrasal", base:"find out", past:"found out", future:"will find out", es:"descubrir",
+    prPast:"fáund aut", prPres:"fáind aut", prFut:"uil fáind aut",
     ejPast:"She found out the truth.", ejPastEs:"Ella descubrió la verdad.",
     ejPres:"She always finds out everything.", ejPresEs:"Ella siempre descubre todo.",
     ejFut:"She will find out tomorrow.", ejFutEs:"Ella lo descubrirá mañana." },
 
   { type:"phrasal", base:"give up", past:"gave up", future:"will give up", es:"rendirse",
+    prPast:"guéiv ap", prPres:"guív ap", prFut:"uil guív ap",
     ejPast:"He gave up smoking last year.", ejPastEs:"Él dejó de fumar el año pasado.",
     ejPres:"He never gives up.", ejPresEs:"Él nunca se rinde.",
     ejFut:"He will give up if it's too hard.", ejFutEs:"Él se rendirá si es muy difícil." },
 
   { type:"phrasal", base:"put on", past:"put on", future:"will put on", es:"ponerse (ropa)",
+    prPast:"put on", prPres:"put on", prFut:"uil put on",
     ejPast:"He put on his jacket.", ejPastEs:"Él se puso su chaqueta.",
     ejPres:"He puts on his shoes before leaving.", ejPresEs:"Él se pone los zapatos antes de salir.",
     ejFut:"He will put on a suit for the meeting.", ejFutEs:"Él se pondrá un traje para la reunión." },
 
   { type:"phrasal", base:"take off", past:"took off", future:"will take off", es:"quitarse / despegar",
+    prPast:"tuk of", prPres:"téik of", prFut:"uil téik of",
     ejPast:"The plane took off on time.", ejPastEs:"El avión despegó a tiempo.",
     ejPres:"The plane takes off every hour.", ejPresEs:"El avión despega cada hora.",
     ejFut:"The plane will take off at 5 PM.", ejFutEs:"El avión despegará a las 5 PM." },
 
   { type:"phrasal", base:"come back", past:"came back", future:"will come back", es:"regresar",
+    prPast:"kéim bak", prPres:"kam bak", prFut:"uil kam bak",
     ejPast:"She came back from her trip.", ejPastEs:"Ella regresó de su viaje.",
     ejPres:"She comes back home every weekend.", ejPresEs:"Ella regresa a casa cada fin de semana.",
     ejFut:"She will come back next month.", ejFutEs:"Ella regresará el próximo mes." },
 
   { type:"phrasal", base:"go out", past:"went out", future:"will go out", es:"salir",
+    prPast:"uent aut", prPres:"góu aut", prFut:"uil góu aut",
     ejPast:"We went out last night.", ejPastEs:"Salimos anoche.",
     ejPres:"We go out every Friday.", ejPresEs:"Salimos cada viernes.",
     ejFut:"We will go out this weekend.", ejFutEs:"Saldremos este fin de semana." },
 
   { type:"phrasal", base:"come in", past:"came in", future:"will come in", es:"entrar",
+    prPast:"kéim in", prPres:"kam in", prFut:"uil kam in",
     ejPast:"He came in without knocking.", ejPastEs:"Él entró sin tocar.",
     ejPres:"He comes in at 9 AM.", ejPresEs:"Él entra a las 9 AM.",
     ejFut:"He will come in later today.", ejFutEs:"Él entrará más tarde hoy." },
 
   { type:"phrasal", base:"get in", past:"got in", future:"will get in", es:"subir (vehículo)",
+    prPast:"got in", prPres:"guet in", prFut:"uil guet in",
     ejPast:"He got in the car quickly.", ejPastEs:"Él subió al coche rápidamente.",
     ejPres:"He gets in the car every morning.", ejPresEs:"Él sube al coche cada mañana.",
     ejFut:"He will get in the taxi soon.", ejFutEs:"Él subirá al taxi pronto." },
 
   { type:"phrasal", base:"get out", past:"got out", future:"will get out", es:"salir / bajarse",
+    prPast:"got aut", prPres:"guet aut", prFut:"uil guet aut",
     ejPast:"She got out of the taxi.", ejPastEs:"Ella se bajó del taxi.",
     ejPres:"She gets out at the next stop.", ejPresEs:"Ella se baja en la próxima parada.",
     ejFut:"She will get out in five minutes.", ejFutEs:"Ella se bajará en cinco minutos." },
 
   { type:"phrasal", base:"look after", past:"looked after", future:"will look after", es:"cuidar",
+    prPast:"lukt áfter", prPres:"luk áfter", prFut:"uil luk áfter",
     ejPast:"I looked after my sister yesterday.", ejPastEs:"Cuidé a mi hermana ayer.",
     ejPres:"I look after my little sister.", ejPresEs:"Cuido a mi hermanita.",
     ejFut:"I will look after the dog this weekend.", ejFutEs:"Cuidaré al perro este fin de semana." },
 
   { type:"phrasal", base:"look forward to", past:"looked forward to", future:"will look forward to", es:"esperar con ganas",
+    prPast:"lukt fór-uard tu", prPres:"luk fór-uard tu", prFut:"uil luk fór-uard tu",
     ejPast:"I looked forward to the trip.", ejPastEs:"Esperaba con ganas el viaje.",
     ejPres:"I look forward to your reply.", ejPresEs:"Espero con ganas tu respuesta.",
     ejFut:"I will look forward to seeing you.", ejFutEs:"Esperaré con ganas verte." },
 
   { type:"phrasal", base:"run out of", past:"ran out of", future:"will run out of", es:"quedarse sin",
+    prPast:"ran aut ov", prPres:"ran aut ov", prFut:"uil ran aut ov",
     ejPast:"We ran out of milk.", ejPastEs:"Nos quedamos sin leche.",
     ejPres:"We run out of coffee every week.", ejPresEs:"Nos quedamos sin café cada semana.",
     ejFut:"We will run out of time.", ejFutEs:"Nos quedaremos sin tiempo." },
 
   { type:"phrasal", base:"put up with", past:"put up with", future:"will put up with", es:"aguantar",
+    prPast:"put ap uid", prPres:"put ap uid", prFut:"uil put ap uid",
     ejPast:"I put up with the noise.", ejPastEs:"Aguanté el ruido.",
     ejPres:"I can't put up with the noise.", ejPresEs:"No puedo aguantar el ruido.",
     ejFut:"I won't put up with it anymore.", ejFutEs:"Ya no lo aguantaré más." },
 
   { type:"phrasal", base:"come up with", past:"came up with", future:"will come up with", es:"idear / ocurrírsele",
+    prPast:"kéim ap uid", prPres:"kam ap uid", prFut:"uil kam ap uid",
     ejPast:"She came up with a great plan.", ejPastEs:"A ella se le ocurrió un gran plan.",
     ejPres:"She comes up with ideas easily.", ejPresEs:"A ella se le ocurren ideas fácilmente.",
     ejFut:"She will come up with a solution.", ejFutEs:"A ella se le ocurrirá una solución." },
 
   { type:"phrasal", base:"figure out", past:"figured out", future:"will figure out", es:"descifrar",
+    prPast:"fígurd aut", prPres:"fígur aut", prFut:"uil fígur aut",
     ejPast:"I figured out the puzzle.", ejPastEs:"Descifré el acertijo.",
     ejPres:"I figure out problems quickly.", ejPresEs:"Descifro problemas rápidamente.",
     ejFut:"I will figure it out soon.", ejFutEs:"Lo descifraré pronto." },
 
   { type:"phrasal", base:"point out", past:"pointed out", future:"will point out", es:"señalar",
+    prPast:"póintid aut", prPres:"póint aut", prFut:"uil póint aut",
     ejPast:"He pointed out a mistake.", ejPastEs:"Él señaló un error.",
     ejPres:"He points out details others miss.", ejPresEs:"Él señala detalles que otros no ven.",
     ejFut:"He will point out the issue tomorrow.", ejFutEs:"Él señalará el problema mañana." },
 
   { type:"phrasal", base:"sort out", past:"sorted out", future:"will sort out", es:"resolver",
+    prPast:"sortid aut", prPres:"sort aut", prFut:"uil sort aut",
     ejPast:"We sorted out the problem.", ejPastEs:"Resolvimos el problema.",
     ejPres:"We sort out issues quickly.", ejPresEs:"Resolvemos los problemas rápidamente.",
     ejFut:"We will sort it out tomorrow.", ejFutEs:"Lo resolveremos mañana." },
 
   { type:"phrasal", base:"work out", past:"worked out", future:"will work out", es:"ejercicio / resolver",
+    prPast:"uórkt aut", prPres:"uórk aut", prFut:"uil uórk aut",
     ejPast:"Everything worked out fine.", ejPastEs:"Todo salió bien.",
     ejPres:"I work out at the gym.", ejPresEs:"Hago ejercicio en el gimnasio.",
     ejFut:"Everything will work out in the end.", ejFutEs:"Todo se resolverá al final." },
 
   { type:"phrasal", base:"take over", past:"took over", future:"will take over", es:"hacerse cargo",
+    prPast:"tuk óuver", prPres:"téik óuver", prFut:"uil téik óuver",
     ejPast:"She took over the project.", ejPastEs:"Ella se hizo cargo del proyecto.",
     ejPres:"She takes over when the boss is away.", ejPresEs:"Ella se hace cargo cuando el jefe no está.",
     ejFut:"She will take over next month.", ejFutEs:"Ella se hará cargo el próximo mes." },
 
   { type:"phrasal", base:"give in", past:"gave in", future:"will give in", es:"ceder",
+    prPast:"guéiv in", prPres:"guív in", prFut:"uil guív in",
     ejPast:"He finally gave in.", ejPastEs:"Finalmente cedió.",
     ejPres:"He never gives in to pressure.", ejPresEs:"Él nunca cede a la presión.",
     ejFut:"He will give in eventually.", ejFutEs:"Él cederá eventualmente." },
 
   { type:"phrasal", base:"break down", past:"broke down", future:"will break down", es:"averiarse",
+    prPast:"bróuk dáun", prPres:"bréik dáun", prFut:"uil bréik dáun",
     ejPast:"The car broke down on the highway.", ejPastEs:"El coche se averió en la autopista.",
     ejPres:"This car breaks down often.", ejPresEs:"Este coche se avería con frecuencia.",
     ejFut:"It will break down if you don't fix it.", ejFutEs:"Se averiará si no lo arreglas." },
 
   { type:"phrasal", base:"break up", past:"broke up", future:"will break up", es:"terminar (relación)",
+    prPast:"bróuk ap", prPres:"bréik ap", prFut:"uil bréik ap",
     ejPast:"They broke up last month.", ejPastEs:"Ellos terminaron el mes pasado.",
     ejPres:"They break up and get back together.", ejPresEs:"Terminan y vuelven.",
     ejFut:"They will break up if things don't change.", ejFutEs:"Terminarán si las cosas no cambian." },
 
   { type:"phrasal", base:"grow up", past:"grew up", future:"will grow up", es:"crecer",
+    prPast:"grúu ap", prPres:"gróu ap", prFut:"uil gróu ap",
     ejPast:"I grew up in a small town.", ejPastEs:"Crecí en un pueblo pequeño.",
     ejPres:"Kids grow up so fast.", ejPresEs:"Los niños crecen muy rápido.",
     ejFut:"He will grow up to be a doctor.", ejFutEs:"Él crecerá y será doctor." },
 
   { type:"phrasal", base:"show up", past:"showed up", future:"will show up", es:"aparecer",
+    prPast:"shóud ap", prPres:"shóu ap", prFut:"uil shóu ap",
     ejPast:"He showed up late again.", ejPastEs:"Él apareció tarde otra vez.",
     ejPres:"He always shows up on time.", ejPresEs:"Él siempre aparece a tiempo.",
     ejFut:"He will show up eventually.", ejFutEs:"Él aparecerá eventualmente." },
 
   { type:"phrasal", base:"stand up", past:"stood up", future:"will stand up", es:"ponerse de pie",
+    prPast:"stud ap", prPres:"stand ap", prFut:"uil stand ap",
     ejPast:"Everyone stood up for the anthem.", ejPastEs:"Todos se pusieron de pie para el himno.",
     ejPres:"We stand up when the teacher enters.", ejPresEs:"Nos ponemos de pie cuando entra el maestro.",
     ejFut:"We will stand up when they arrive.", ejFutEs:"Nos pondremos de pie cuando lleguen." },
 
   { type:"phrasal", base:"sit down", past:"sat down", future:"will sit down", es:"sentarse",
+    prPast:"sat dáun", prPres:"sit dáun", prFut:"uil sit dáun",
     ejPast:"He sat down on the couch.", ejPastEs:"Él se sentó en el sofá.",
     ejPres:"He sits down to read every night.", ejPresEs:"Él se sienta a leer cada noche.",
     ejFut:"He will sit down with us later.", ejFutEs:"Él se sentará con nosotros más tarde." },
 
   { type:"phrasal", base:"calm down", past:"calmed down", future:"will calm down", es:"calmarse",
+    prPast:"kamd dáun", prPres:"kam dáun", prFut:"uil kam dáun",
     ejPast:"She calmed down after a while.", ejPastEs:"Ella se calmó después de un rato.",
     ejPres:"She calms down quickly.", ejPresEs:"Ella se calma rápidamente.",
     ejFut:"She will calm down soon.", ejFutEs:"Ella se calmará pronto." },
 
   { type:"phrasal", base:"hurry up", past:"hurried up", future:"will hurry up", es:"apresurarse",
+    prPast:"jórid ap", prPres:"jóri ap", prFut:"uil jóri ap",
     ejPast:"He hurried up to catch the bus.", ejPastEs:"Él se apresuró para alcanzar el autobús.",
     ejPres:"He always hurries up in the morning.", ejPresEs:"Él siempre se apresura por la mañana.",
     ejFut:"He will hurry up if we call him.", ejFutEs:"Él se apresurará si lo llamamos." },
 
   { type:"phrasal", base:"throw away", past:"threw away", future:"will throw away", es:"tirar (basura)",
+    prPast:"zrúu auéi", prPres:"zróu auéi", prFut:"uil zróu auéi",
     ejPast:"He threw away the old newspapers.", ejPastEs:"Él tiró los periódicos viejos.",
     ejPres:"He throws away junk every month.", ejPresEs:"Él tira basura cada mes.",
     ejFut:"He will throw away the broken chair.", ejFutEs:"Él tirará la silla rota." },
 
   { type:"phrasal", base:"try on", past:"tried on", future:"will try on", es:"probarse (ropa)",
+    prPast:"tráid on", prPres:"trái on", prFut:"uil trái on",
     ejPast:"She tried on the dress.", ejPastEs:"Ella se probó el vestido.",
     ejPres:"She tries on clothes before buying.", ejPresEs:"Ella se prueba la ropa antes de comprar.",
     ejFut:"She will try on the shoes tomorrow.", ejFutEs:"Ella se probará los zapatos mañana." },
@@ -1484,6 +1657,50 @@ themeBtn.addEventListener('click', () => {
   localStorage.setItem('theme', next);
   themeBtn.textContent = next === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
 });
+
+// ============ VOZ ============
+let voices = [];
+let preferredVoice = null;
+
+function loadVoices() {
+  if (!('speechSynthesis' in window)) return;
+  voices = speechSynthesis.getVoices();
+  const enVoices = voices.filter(v => v.lang.startsWith('en'));
+  preferredVoice =
+    enVoices.find(v => v.lang === 'en-US' && v.name.includes('Google')) ||
+    enVoices.find(v => v.lang === 'en-US') ||
+    enVoices.find(v => v.lang.startsWith('en')) ||
+    null;
+}
+
+if ('speechSynthesis' in window) {
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speak(text, rate = 0.9) {
+  if (!('speechSynthesis' in window)) {
+    showToast('⚠️ Tu navegador no soporta la síntesis de voz');
+    return;
+  }
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = rate;
+  utterance.pitch = 1;
+  if (preferredVoice) utterance.voice = preferredVoice;
+  speechSynthesis.speak(utterance);
+}
+
+// ============ TOAST ============
+let toastTimeout;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => toast.classList.remove('show'), 2000);
+}
 
 // ============ GUÍA: TOGGLES ============
 document.querySelectorAll('.guide-toggle').forEach(btn => {
@@ -1510,7 +1727,6 @@ const typeLabels = {
   phrasal: "Phrasal Verb"
 };
 
-// ============ INTRO DE CADA CATEGORÍA ============
 const catIntro = {
   regular: {
     title: "🔵 ¿Qué es un verbo regular?",
@@ -1590,13 +1806,11 @@ function render() {
   });
 
   Object.keys(grupos).forEach(type => {
-    // Título
     const title = document.createElement('div');
     title.className = 'category-title';
     title.textContent = catNames[type] || type;
     container.appendChild(title);
 
-    // Panel explicativo de la categoría
     if (catIntro[type]) {
       const intro = catIntro[type];
       const info = document.createElement('div');
@@ -1611,13 +1825,16 @@ function render() {
       container.appendChild(info);
     }
 
-    // Tarjetas de verbos
     grupos[type].forEach(v => {
       const isLearned = aprendidos.includes(v.base);
       const card = document.createElement('div');
       card.className = 'verb-card' + (isLearned ? ' learned' : '');
 
       const key = encodeURIComponent(v.base);
+      const baseKey = encodeURIComponent(v.base);
+      const pastKey = encodeURIComponent(v.past);
+      const futKey = encodeURIComponent(v.future);
+
       card.innerHTML = `
         <div class="verb-check">
           <label>Aprendido</label>
@@ -1627,19 +1844,37 @@ function render() {
         <span class="type-badge type-${v.type}">${typeLabels[v.type]}</span>
 
         <div class="verb-top">
-          <div class="verb-slot verb-past">
+          <div class="verb-slot verb-past" data-speak="${pastKey}" data-word="${v.past}" title="Clic para escuchar el pasado">
+            <span class="speaker">🔊</span>
             <div class="label">Pasado</div>
             <div class="value">${v.past}</div>
           </div>
           <div class="arrow">→</div>
-          <div class="verb-slot verb-center">
+          <div class="verb-slot verb-center" data-speak="${baseKey}" data-word="${v.base}" title="Clic para escuchar el verbo base">
+            <span class="speaker">🔊</span>
             <div class="label">Verbo</div>
             <div class="verb-base">${v.base}</div>
           </div>
           <div class="arrow">→</div>
-          <div class="verb-slot verb-future">
+          <div class="verb-slot verb-future" data-speak="${futKey}" data-word="${v.future}" title="Clic para escuchar el futuro">
+            <span class="speaker">🔊</span>
             <div class="label">Futuro</div>
             <div class="value">${v.future}</div>
+          </div>
+        </div>
+
+        <div class="pron-row">
+          <div class="pron-item past">
+            <span class="pron-label">🔤 Pron. pasado</span>
+            ${v.prPast}
+          </div>
+          <div class="pron-item present">
+            <span class="pron-label">🔤 Pron. presente</span>
+            ${v.prPres}
+          </div>
+          <div class="pron-item future">
+            <span class="pron-label">🔤 Pron. futuro</span>
+            ${v.prFut}
           </div>
         </div>
 
@@ -1672,6 +1907,23 @@ function render() {
         </div>
       `;
       container.appendChild(card);
+    });
+  });
+
+  // Listeners: click en cada forma verbal para reproducir audio
+  container.querySelectorAll('.verb-slot').forEach(slot => {
+    slot.addEventListener('click', (e) => {
+      // Ignorar clic si fue sobre el checkbox
+      if (e.target.closest('.verb-check')) return;
+
+      const word = slot.dataset.word;
+      if (word && word !== '—') {
+        speak(word, 0.85);
+        showToast(`🔊 ${word}`);
+        // Efecto visual
+        slot.style.transform = 'scale(0.95)';
+        setTimeout(() => slot.style.transform = '', 150);
+      }
     });
   });
 
